@@ -1,265 +1,116 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>California Commonsense Healthcare System Proposal</title>
-	<style>
-		body {
-			font-family: Arial, sans-serif;
-			line-height: 1.6;
-			margin: 20px;
-			background-color: #ffffff;
-			color: #000000;
-			/* Improved readability */
-		}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>California Commonsense Healthcare System</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+    }
 
-		.container {
-			max-width: 900px;
-			margin: 0 auto;
-			background: #ffffff;
-			padding: 20px;
-			border-radius: 8px;
-			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-		}
+    header,
+    nav,
+    section,
+    footer {
+      padding: 20px;
+      margin: auto;
+      max-width: 1000px;
+    }
 
-		h1,
-		h2 {
-			text-align: center;
-		}
+    header {
+      background-color: #00796B;
+      color: white;
+    }
 
-		textarea {
-			width: 80%;
-			max-width: 800px;
-			height: 300px;
-			border: 2px solid #ccc;
-			padding: 15px;
-			font-family: monospace;
-			font-size: 16px;
-			border-radius: 8px;
-			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-			margin-bottom: 20px;
-			transition: border-color 0.3s ease;
-		}
+    nav a {
+      margin-right: 20px;
+      text-decoration: none;
+      color: #00796B;
+    }
 
-		textarea:focus {
-			border-color: #4b8b3b;
-			outline: none;
-		}
+    section {
+      background-color: white;
+      margin-top: 20px;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    }
 
-		iframe {
-			width: 80%;
-			max-width: 900px;
-			height: 400px;
-			border: 2px solid #ccc;
-			border-radius: 8px;
-			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-			margin-top: 20px;
-		}
+    h2 {
+      color: #00796B;
+    }
 
-		button {
-			padding: 12px 25px;
-			font-size: 18px;
-			background-color: #074f07;
-			/* Improved contrast */
-			color: #ffffff;
-			border: none;
-			border-radius: 8px;
-			cursor: pointer;
-			transition: background-color 0.3s ease;
-			margin-top: 20px;
-		}
+    canvas {
+      max-width: 100%;
+    }
 
-		button:hover {
-			background-color: #062000;
-		}
-
-		pre {
-			font-family: monospace;
-			font-size: 16px;
-			background-color: #f4f4f4;
-			padding: 15px;
-			border: 1px solid #ccc;
-			border-radius: 5px;
-			white-space: pre-wrap;
-			word-wrap: break-word;
-		}
-
-		.practice {
-			background-color: #ffffff;
-			padding: 10px;
-			margin: 20px 0;
-			border-left: 4px solid #007BFF;
-		}
-	</style>
+    footer {
+      text-align: center;
+      font-size: 0.9em;
+      color: #666;
+    }
+  </style>
 </head>
 
-<body lang=EN-US link="#0563C1" vlink="#954F72" style='word-wrap:break-word'>
+<body>
+  <header>
+    <h1>California Commonsense Healthcare System (CHS)</h1>
+    <p>A Unified Vision for Affordable, Accessible Healthcare in California</p>
+  </header>
 
-	<div class="container">
-		<p><strong>California Commonsense Healthcare System Proposal</strong></p>
-		<p><strong>Section 1: Title</strong></p>
-		<p>This act shall be known as the <strong>California Commonsense Healthcare System (CHS) Act</strong>.</p>
-		<p><strong>Section 2: Purpose and Goals</strong></p>
-		<p>The purpose of the California Commonsense Healthcare System is to ensure access to quality, affordable
-			healthcare for all residents of the State of California, without regard to income, health status, or other
-			factors. The goals of the California Commonsense Healthcare System are as follows:</p>
-		<ol>
-			<li><strong>Provision of Comprehensive Health Coverage</strong>: Ensure that all residents of the state have
-				access to a comprehensive health insurance plan that covers all necessary health services.</li>
-			<li><strong>Net Savings</strong>: Achieve a net savings for all Californians by eliminating health insurance
-				premiums, co-payments, and other out-of-pocket expenses.</li>
-			<li><strong>Cost Control</strong>: Control the overall cost of healthcare through cost-saving measures,
-				including reduced administrative expenses, increased system efficiency, and improved health outcomes.
-			</li>
-			<li><strong>Access to a Full Range of Services</strong>: Ensure the availability of a full spectrum of
-				healthcare services, including preventive care, primary care, specialty care, hospitalization, dental,
-				vision, mental health, and prescription drug services.</li>
-			<li><strong>High-Quality, Evidence-Based Care</strong>: Promote the delivery of high-quality, evidence-based
-				healthcare services, with a focus on patient-centered, integrated, and coordinated care.</li>
-			<li><strong>Minimization of Administrative Burdens</strong>: Reduce the administrative burden on both
-				patients and healthcare providers.</li>
-			<li><strong>Public Health and Wellness</strong>: Promote public health through prevention and wellness
-				programs designed to improve the general health and well-being of the state's residents.</li>
-		</ol>
-		<p><strong>Section 3: Right to Healthcare</strong></p>
-		<ol>
-			<li><strong>Healthcare Access</strong>: All residents of California shall have the fundamental right to
-				access comprehensive, high-quality healthcare services through the California Commonsense Healthcare
-				System (CHS).</li>
-			<li><strong>Non-Discrimination</strong>: The State shall not deny or limit the availability of healthcare
-				services based on a resident&rsquo;s income, employment status, or health condition.</li>
-		</ol>
-		<p><strong>Section 4: Savings</strong></p>
-		<ol>
-			<li><strong>Expected Savings</strong>: The implementation of the California Commonsense Healthcare System is
-				projected to result in significant long-term savings. This will be achieved by reducing the
-				inefficiencies of the current fragmented healthcare system and improving overall health outcomes for
-				California residents.</li>
-			<li><strong>Negotiation of Drug Prices</strong>: The State shall negotiate directly with pharmaceutical
-				companies to reduce the cost of prescription drugs, including establishing a bulk purchasing program to
-				lower drug prices.</li>
-			<li><strong>Utilization of Savings</strong>: Savings generated through these measures shall be used to
-				enhance the quality and accessibility of healthcare services and to ensure the financial sustainability
-				of the California Commonsense Healthcare System.</li>
-		</ol>
-		<p><strong>Section 5: Administration</strong></p>
-		<ol>
-			<li><strong>Board of Directors</strong>: The California Commonsense Healthcare System shall be governed by a
-				<strong>Board of Directors</strong> consisting of seventeen (17) members, appointed by the Governor and
-				confirmed by the California State Senate. The composition of the Board shall reflect key stakeholder
-				groups, including healthcare providers and patients.</li>
-			<li><strong>Duties and Responsibilities</strong>: The Board of Directors shall be responsible for overseeing
-				the implementation and operation of the California Commonsense Healthcare System, including but not
-				limited to:</li>
-			<ul>
-				<li>Setting quality standards and cost parameters.</li>
-				<li>Negotiating contracts with healthcare providers.</li>
-				<li>Ensuring the financial sustainability of the system.</li>
-			</ul>
-			<li><strong>Board Composition and Terms</strong>:</li>
-			<ul>
-				<li>The Board shall consist of seventeen (17) members, who shall serve six-year terms, with a maximum of
-					three (3) terms per member.</li>
-				<li>Members of the Board may be compensated for their service.</li>
-				<li>The Board shall initially consist of five (5) members, with the full complement of seventeen (17)
-					members to be reached over a four-year period as follows:</li>
-				<ul>
-					<li><strong>After two years</strong>: An additional six (6) members shall be appointed.</li>
-					<li><strong>After four years</strong>: An additional six (6) members shall be appointed.</li>
-				</ul>
-			</ul>
-		</ol>
-		<p><strong>Section 6: Implementation</strong></p>
-		<ol>
-			<li><strong>Key Design Considerations</strong>: The implementation of the California Commonsense Healthcare
-				System shall be in accordance with the Key Design Considerations for a Unified Healthcare Financing
-				System in California, as developed by the California Health and Human Services Agency, as outlined in
-				the <strong>Final Report</strong> (available here: <a
-					href="https://www.chhs.ca.gov/wp-content/uploads/2022/04/Key-Design-Considerations_April-2022_Final-Report-for-Distribution.pdf">Key
-					Design Considerations Report</a>).</li>
-			<li><strong>Phase-in Period</strong>: The California Commonsense Healthcare System shall be phased in over a
-				period of four (4) years, with the goal of complete coverage and a smooth transition for patients,
-				healthcare providers, and employers. This phased implementation will include public education, outreach
-				efforts, and the enrollment of eligible residents.</li>
-			<li><strong>Specific Timelines</strong>:</li>
-			<ul>
-				<li><strong>Within ninety (90) days</strong> of passage, and lasting until full implementation:</li>
-				<ul>
-					<li>All Californians whose income is at or below 300% of the Federal Poverty Level shall be eligible
-						for Medi-Cal at no cost.</li>
-					<li>Employers who do not offer qualified health insurance to their employees will be required to pay
-						an annual employment healthcare fee, as follows:</li>
-					<ul>
-						<li>Employers with more than fifty (50) employees: $10,000 per employee.</li>
-						<li>Employers with between ten (10) and forty-nine (49) employees: $8,000 per employee.</li>
-						<li>Employers with between three (3) and ten (10) employees: $6,000 per employee.</li>
-						<li>Employers with one (1) or two (2) employees: $2,000 per employee.</li>
-					</ul>
-					<li>The maximum annual out-of-pocket cost for any individual healthcare plan <strong>outside of the
-							California Commonsense Healthcare System (CHS)</strong> shall be capped at $2,000. This cap
-						does not apply to healthcare services covered under the CHS, as all covered services within the
-						CHS will be provided at no cost to the individual after enrollment.</li>
-				</ul>
-				<li><strong>Within one (1) year</strong>:</li>
-				<ul>
-					<li>Health, vision, and dental coverage will be mandated for all health plans, as determined by the
-						CHS Board.</li>
-				</ul>
-				<li><strong>Within eighteen (18) months</strong>:</li>
-				<ul>
-					<li>The CHS Board shall have developed and implemented a working plan based on the Key Design
-						Considerations report.</li>
-				</ul>
-				<li><strong>End of Year Four</strong>:</li>
-				<ul>
-					<li>Full implementation of the California Commonsense Healthcare System.</li>
-				</ul>
-			</ul>
-		</ol>
-		<p><strong>Section 7: Quality and Access Provisions</strong></p>
-		<ol>
-			<li><strong>Provider Participation</strong>: All healthcare providers within the state shall be required to
-				participate in the California Commonsense Healthcare System.</li>
-			<li><strong>Payment Rates</strong>: Providers shall accept standardized payment rates set by the California
-				Commonsense Healthcare System and shall not bill patients for any covered services nor charge more than
-				the established payment rates.</li>
-			<li><strong>Uniformity of Payment</strong>: All providers shall accept the same payment rates for all
-				patients, as established by the CHS Board.</li>
-		</ol>
-		<p><strong>Section 8: Regulation</strong></p>
-		<ol>
-			<li><strong>Compliance with Laws and Regulations</strong>: The California Commonsense Healthcare System
-				shall be subject to all applicable state and federal laws, including those pertaining to quality
-				standards, cost controls, privacy, and consumer protection.</li>
-			<li><strong>Regulatory Authority</strong>: The CHS Board shall have the authority to set policies, negotiate
-				payment rates, and ensure the delivery of high-quality healthcare services to all residents of
-				California. The Board shall ensure compliance with all applicable laws and regulations.</li>
-		</ol>
-		<p><strong>Section 9: Funding</strong></p>
-		<ol>
-			<li><strong>Funding Sources</strong>: The California Commonsense Healthcare System shall be funded through
-				the following sources:</li>
-			<ul>
-				<li>No individual shall be required to pay for healthcare services, insurance premiums, or fees.</li>
-				<li>No taxes shall be levied on individuals earning at or below 200% of the Federal Poverty Level.</li>
-				<li>A progressive statewide payroll tax shall be imposed on employers and employees, with a structure
-					ensuring that higher earners contribute more.</li>
-				<li>Existing state healthcare funds shall be redirected to fund the program.</li>
-				<li>Any available federal funds may be utilized.</li>
-			</ul>
-		</ol>
-		<p><strong>Section 10: Conclusion</strong></p>
-		<p>The adoption of the California Commonsense Healthcare System will provide universal access to high-quality,
-			affordable healthcare for all residents of California. This system will replace the existing fragmented
-			healthcare structure with a more efficient, cost-effective model, ensuring that every resident receives
-			comprehensive care without financial hardship. The California Commonsense Healthcare System aims to reduce
-			administrative costs, promote public health, and ensure long-term sustainability while guaranteeing that all
-			residents can access the care they need.</p>
-		<p>&nbsp;</p>
-		<p>&nbsp;</p>
+  <nav>
+    <a href="#summary">Summary</a>
+    <a href="#proposal">Proposal</a>
+    <a href="#analysis">Actuarial Analysis</a>
+  </nav>
 
-	</div>
+  <section id="summary">
+    <h2>Summary</h2>
+    <p>
+      The California Commonsense Healthcare System (CHS) aims to provide universal, high-quality healthcare for all
+      residents of California. It guarantees access regardless of income or health status, eliminates insurance premiums
+      and co-pays, negotiates lower drug costs, and reduces administrative overhead. The system will be implemented over
+      four years and include a digital infrastructure called SHAS to support secure, integrated healthcare access and
+      analytics.
+    </p>
+  </section>
+
+  <section id="proposal">
+    <h2>Full Proposal</h2>
+    <p>
+      For full transparency, the complete proposal includes provisions such as the establishment of a Board of
+      Directors, employer contribution requirements, a phased implementation plan, the Smart Health Access System
+      (SHAS), rules for private insurers, and a Patient Bill of Rights. The CHS will be funded through progressive
+      payroll taxes and federal/state healthcare fund redirection without taxing low-income individuals.
+    </p>
+    <p><a href="fullproposal.html">(Click here to view/download full legislative text)</a></p>
+  </section>
+
+  <section id="analysis">
+    <h2>Actuarial Analysis</h2>
+    <h3>How Much Will You Save?</h3>
+    <p><strong>$16,700 per year</strong> — Estimated average household savings under CHS.</p>
+
+     <ul>
+      <li>18% cost savings from streamlined admin and bulk negotiations</li>
+      <li>Widespread employer payroll participation</li>
+      <li>Federal contributions via Medicaid waivers</li>
+      <li>Fraud minimized via Smart Health Access System (SHAS)</li>
+    </ul>
+    <p>📊 Sample Scenario:<a href="actuarial_funding.html">Analysis Details</a></p>
+    
+  </section>
+
+  <footer>
+    <p>This is an informational site for public review.</p>
+  </footer>
+
 
 </body>
 
