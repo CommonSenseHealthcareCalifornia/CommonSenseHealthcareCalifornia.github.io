@@ -1,156 +1,310 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>California Commonsense Healthcare System</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>California Commonsense Healthcare System (CCHS)</title>
+  <meta name="description" content="A commonsense vision for affordable, accessible healthcare in California." />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
+    :root{
+      --bg: #4e81b4;
+      --bg-alt:#0f2438;
+      --primary:#2bb673; /* green */
+      --accent:#3aa0ff;  /* blue */
+      --text:#e9f1f7;
+      --muted:#b9c7d3;
+      --card:#102536;
+      --border:#1e3a52;
+      --shadow: 0 10px 20px rgba(3,12,20,.25);
+      --radius: 14px;
     }
 
-    header,
-    nav,
-    section,
-    footer {
-      padding: 20px;
-      margin: auto;
-      max-width: 1000px;
+    /* Reset & base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% 0%, #12314a 0%, var(--bg) 45%, #06131f 100%),
+        linear-gradient(180deg, var(--bg) 0%, #081624 100%);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+      line-height:1.55;
+    }
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Header / Nav */
+    header{
+      position:sticky; top:0; z-index:1000;
+      backdrop-filter:saturate(120%) blur(8px);
+      background-color:rgba(8,22,36,0.7);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{
+      max-width:1100px; margin:auto;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 20px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px; font-weight:700;
+      color:var(--text);
+    }
+    .brand .logo{
+      width:36px; height:36px; border-radius:8px;
+      background:linear-gradient(135deg, var(--accent), var(--primary));
+      box-shadow: var(--shadow);
+    }
+    .menu{display:flex; gap:18px; flex-wrap:wrap}
+    .menu a{
+      color:var(--text); opacity:.9; padding:8px 10px; border-radius:8px;
+    }
+    .menu a:hover{background-color:#0e1f31}
+
+    /* Hero */
+    .hero{
+      max-width:1100px; margin:40px auto 20px; padding:20px;
+      display:grid; grid-template-columns:1.15fr .85fr; gap:24px;
+    }
+    .hero-card{
+      background:linear-gradient(180deg, #0e2132 0%, #0b1d2d 100%);
+      border:1px solid var(--border); border-radius:var(--radius);
+      box-shadow: var(--shadow);
+      padding:28px;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      background-color:#0f2a40; color:var(--muted);
+      border:1px solid var(--border); border-radius:999px;
+      padding:6px 12px; font-size:.88rem; margin-bottom:14px;
+    }
+    .title{
+      font-size:clamp(1.6rem, 2.8vw + 1rem, 2.4rem);
+      line-height:1.2; margin:4px 0 12px;
+      letter-spacing:.2px;
+    }
+    .subtitle{color:var(--muted); font-size:1.02rem; margin:0 0 18px}
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:8px}
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:12px 16px; border-radius:12px; font-weight:600;
+      border:1px solid var(--border);
+      background-color:#103049; color:var(--text);
+    }
+    .btn.primary{
+      background:linear-gradient(135deg, var(--primary) 0%, #1f8a56 100%);
+      color:#041a12; border: none;
+    }
+    .btn.transparent{background-color:transparent}
+
+    /* Cards grid */
+    .grid{
+      max-width:1100px; margin:10px auto 50px; padding:0 20px;
+      display:grid; gap:18px;
+      grid-template-columns:repeat(3, 1fr);
+    }
+    .card{
+      background-color:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+      padding:22px;
+    }
+    .card h3{margin-top:0; font-size:1.15rem}
+    .card p{color:var(--muted)}
+    .card .more{margin-top:12px; display:inline-flex; gap:8px; align-items:center}
+
+    /* Highlight panel */
+    .panel{
+      max-width:1100px; margin:0 auto 50px; padding:20px;
+    }
+    .highlight{
+      border:1px dashed #28557a;
+      border-radius:var(--radius);
+      background:linear-gradient(180deg, #0d263b 0%, #0b2033 100%);
+      padding:22px;
+    }
+    .kpi{
+      display:flex; align-items:center; gap:16px; flex-wrap:wrap;
+      margin-top:10px;
+    }
+    .kpi-item{
+      background-color:#0f2c46; border:1px solid var(--border);
+      border-radius:12px; padding:12px 16px;
+    }
+    .kpi-item strong{color:#b7e4c2}
+
+    /* Footer */
+    footer{
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      padding:24px 20px; text-align:center;
+      background-color:#0a1a29;
     }
 
-    header {
-      background-color: #00796B;
-      color: white;
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 620px){
+      .menu{display:none}
+      .grid{grid-template-columns:1fr}
     }
 
-    nav a {
-      margin-right: 20px;
-      text-decoration: none;
-      color: #00796B;
-    }
-
-    section {
-      background-color: white;
-      margin-top: 20px;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-    }
-
-    h2 {
-      color: #00796B;
-    }
-
-    canvas {
-      max-width: 100%;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.9em;
-      color: #666;
-    }
+    /* Accessibility helpers */
+    .sr-only{position:absolute; left:-9999px}
+    :focus-visible{outline:2px solid var(--accent); outline-offset:2px}
   </style>
 </head>
-
 <body>
-  <header>
-    <h1>California Commonsense Healthcare System (CHS)</h1>
-    <p>A Unified Vision for Affordable, Accessible Healthcare in California</p>
+  <!-- Header / Navigation -->
+  <header role="banner" aria-label="Site header">
+    <nav class="nav" aria-label="Primary">
+      <div class="brand" aria-label="Brand">
+        <span class="logo" aria-hidden="true"></span>
+        <span>California Commonsense Healthcare System</span>
+      </div>
+      <div class="menu">
+        <a href="#summary">Summary</a>
+        <a href="why_doctors_want_CHS.html">Doctors Support CHS</a>
+        <a href="your_doctor.html">Keep Your Doctor</a>
+        <a href="fullproposal.html">Proposal</a>
+        <a href="actuarial_funding.html">Actuarial Analysis</a>
+        <a href="concerns.html">Concerns</a>
+        <a href="infographic.html" aria-label="Infographic">Infographic</a>
+      </div>
+    </nav>
   </header>
 
-  <nav>
-    <a href="#summary">Summary</a>
-<a href="#docs">Doctors Support CHS</a>
-<a href="#mydocs">You Can Keep Your Doctor</a>
-    <a href="#proposal">Proposal</a>
-    <a href="#analysis">Actuarial Analysis</a>
-    <a href="#concerns">Concerns</a>
-  </nav>
+  <!-- Hero -->
+  <section class="hero" id="summary" aria-labelledby="hero-title">
+    <article class="hero-card">
+      <div class="badge" aria-label="Policy tagline">
+        <span>Commonsense Care for California</span>
+      </div>
+      <h1 class="title" id="hero-title">
+        California Commonsense Healthcare System (CCHS)
+      </h1>
+      <p class="subtitle">
+        A publicly administered model that delivers affordable, comprehensive care to all California residents—eliminating premiums and out‑of‑pocket costs while improving outcomes and equity.
+      </p>
+      <p>
+        CCHS controls expenses through system efficiency and negotiated drug pricing; guarantees equal access and patient rights; and covers preventive, mental health, dental, vision, and long‑term care. A four‑year rollout includes the <strong>Smart Health Access System (SHAS)</strong> for seamless coordination, governance by an elected Board, and regulated supplemental private insurance. Funding combines progressive payroll taxes, existing state healthcare funds, and federal contributions to replace fragmentation with an integrated approach that reduces costs and strengthens care statewide.
+      </p>
+      <div class="cta-row">
+        <a class="btn primary" href="fullproposal.html" aria-label="Read the full legislative text">
+          Read the Full Proposal
+        </a>
+        <a class="btn" href="infographic.html" aria-label="View infographic of key features">
+          View the Infographic
+        </a>
+        <a class="btn transparent" href="actuarial_funding.html" aria-label="See actuarial analysis">
+          See Savings & Analysis
+        </a>
+      </div>
+    </article>
 
-  <section id="summary">
-    <h2>Summary</h2>
+    <aside class="hero-card" aria-labelledby="quick-links-title">
+      <h2 class="sr-only" id="quick-links-title">Quick Links</h2>
+      <div class="card" style="margin:0; background:transparent; border:none; box-shadow:none; padding:0;">
+        <ul style="list-style:none; padding:0; margin:0; display:grid; gap:12px;">
+          <li class="kpi-item">
+            <strong>What Doctors Say:</strong>
+            <div><a href="why_doctors_want_CHS.html">Why Doctors Support CHS</a></div>
+          </li>
+          <li class="kpi-item">
+            <strong>Your Provider Choice:</strong>
+            <div><a href="your_doctor.html">You Can Keep Your Doctor</a></div>
+          </li>
+          <li class="kpi-item">
+            <strong>Actuarial Snapshot:</strong>
+            <div><a href="actuarial_funding.html">How Much Will You Save?</a></div>
+          </li>
+          <li class="kpi-item">
+            <strong>Questions & Concerns:</strong>
+            <div><a href="concerns.html">Top 10 Concerns (and Answers)</a></div>
+          </li>
+        </ul>
+      </div>
+    </aside>
+  </section>
+
+  <!-- Feature Cards -->
+  <section class="grid" aria-label="Feature overview">
+    <article class="card">
+      <h3>Comprehensive Coverage</h3>
+      <p>Preventive, primary, specialty, hospitalization, dental, vision, mental health, prescriptions, and long‑term care are included—delivered with evidence‑based standards and coordinated care.</p>
+      <a class="more" href="fullproposal.html" aria-label="Learn more about coverage">
+        Learn more → 
+      </a>
+    </article>
+
+    <article class="card">
+      <h3>Smart Health Access System (SHAS)</h3>
+      <p>Digital credentials and statewide interoperability reduce duplicate tests, streamline billing, and enable faster, safer care—respecting privacy through HIPAA/CCPA‑aligned governance.</p>
+      <a class="more" href="fullproposal.html#Section7" aria-label="Read details on SHAS">
+        Read details →
+      </a>
+    </article>
+
+    <article class="card">
+      <h3>Fair Private Participation</h3>
+      <p>Supplemental private plans may add optional services—but cannot cost more for core services or limit access. Oversight ensures equity, transparency, and patient rights.</p>
+      <a class="more" href="fullproposal.html#Section8" aria-label="View private insurance framework">
+        View framework →
+      </a>
+    </article>
+
+    <article class="card">
+      <h3>Strong Governance</h3>
+      <p>An appointed‑to‑elected Board manages quality standards, rates, and contracts, with public reporting and accountability across providers and plans.</p>
+      <a class="more" href="fullproposal.html#Section5" aria-label="Explore governance details">
+        Governance →
+      </a>
+    </article>
+
+    <article class="card">
+      <h3>Cost Controls & Savings</h3>
+      <p>Administrative simplification and bulk drug negotiations drive savings—aiming to lower household costs and reduce friction for providers.</p>
+      <a class="more" href="actuarial_funding.html" aria-label="See actuarial analysis">
+        See analysis →
+      </a>
+    </article>
+
+    <article class="card">
+      <h3>Patient Bill of Rights</h3>
+      <p>Equal treatment, transparent costs, grievance pathways, and clear coverage lists—so residents can access care confidently without financial hardship.</p>
+      <a class="more" href="fullproposal.html#Section10" aria-label="Read the patient bill of rights">
+        Read rights →
+      </a>
+    </article>
+  </section>
+
+  <!-- Highlight / KPI -->
+  <section class="panel" aria-label="Savings highlight">
+    <div class="highlight">
+      <h3 style="margin-top:0">Estimated Savings</h3>
+      <p style="margin:8px 0 12px">
+        Independent analysis projects household savings driven by streamlined administration, employer participation, federal contributions, and fraud reduction via SHAS.
+      </p>
+      <div class="kpi">
+        <div class="kpi-item"><strong>$16,700</strong> average annual household savings</div>
+        <div class="kpi-item"><strong>18%</strong> estimated system-wide cost reduction</div>
+        <div class="kpi-item"><strong>SHAS</strong> reduces duplicate tests & billing errors</div>
+        <div class="kpi-item"><a href="actuarial_funding.html">View assumptions & scenarios →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
     <p>
-      The California Commonsense Healthcare System (CHS) Act creates a universal, publicly administered health coverage
-      program for all U.S. citizens and legal residents living in California. It guarantees access to comprehensive
-      services—including primary care, specialty care, hospitalization, dental, vision, mental health, prescription
-      drugs, and long-term care—without premiums, co-pays, or out-of-pocket costs.
-      <br><br>
-      The Act aims to lower overall healthcare spending through reduced administrative waste, bulk drug price
-      negotiations, and system-wide efficiency improvements. It establishes a nineteen-member governing board, initially
-      appointed and later elected, to oversee standards, contracts, and financial sustainability. CHS will be phased in
-      over four years, with expanded Medi-Cal eligibility, employer healthcare fees, and eventual full statewide
-      coverage.
-      <br><br>
-      A central component is the Smart Health Access System (SHAS)—a universal digital health identity enabling
-      real-time records, provider coordination, and streamlined billing across all CHS and approved private plans.
-      Providers and insurers must integrate with SHAS and meet strict quality, equity, and transparency standards.
-      <br><br>
-      Private insurance remains allowed only for supplemental or parallel coverage, but cannot exceed CHS prices or
-      limit patient access to public services. A new Insurance Utility Commission regulates private insurers, caps
-      profits, and enforces consumer protections.
-      <br><br>
-      Funding comes from employer/employee payroll taxes above 200% of the federal poverty level, along with existing
-      Medi-Cal, Medicare, and federal healthcare funds. No individual below 200% of the poverty level pays any tax or
-      fee.
-      <br><br>
-      Overall, the CHS Act replaces California’s fragmented system with a unified, equitable structure designed to
-      reduce costs, expand access, enhance care coordination, and ensure long-term sustainability for all residents.
+      This is an informational site for public review. Learn more in the
+      <a href="fullproposal.html">full proposal</a>, explore the
+      <a href="infographic.html">infographic</a>, and send feedback via the contact form (coming soon).
     </p>
-  </section>
-
-  <section id="docs">
-    <h2>Why Doctors Want CHS</h2>
-    <a href="why_doctors_want_CHS.html">Why Doctors Support CHS</a>
-    </section>
-
-    <section id="mydocs">
-    <h2>You Can Keep Your Doctor</h2>
-    <a href="your_doctor.html">You Can Keep Your Doctor</a>
-    </section>
-
-  <section id="proposal">
-    <h2>Full Proposal</h2>
-    <p>
-      For full transparency, the complete proposal includes provisions such as the establishment of a Board of
-      Directors, employer contribution requirements, a phased implementation plan, the Smart Health Access System
-      (SHAS), rules for private insurers, and a Patient Bill of Rights. The CHS will be funded through progressive
-      payroll taxes and federal/state healthcare fund redirection without taxing low-income individuals.
-    </p>
-    <p><a href="fullproposal.html">(Click here to view/download full legislative text)</a></p>
-  </section>
-
-  <section id="analysis">
-    <h2>Actuarial Analysis</h2>
-    <h3>How Much Will You Save?</h3>
-    <p><strong>$16,700 per year</strong> — Estimated average household savings under CHS.</p>
-
-    <ul>
-      <li>18% cost savings from streamlined admin and bulk negotiations</li>
-      <li>Widespread employer payroll participation</li>
-      <li>Federal contributions via Medicaid waivers</li>
-      <li>Fraud minimized via Smart Health Access System (SHAS)</li>
-    </ul>
-    <p>📊 Sample Scenario:<a href="actuarial_funding.html">Analysis Details</a></p>
-
-  </section>
-
-  <section id="concerns">
-    <h2>I'm not convinced</h2>
-    <h3>Not sure about this proposal, check out these 10 common reasons you might oppose this?</h3>
-    <p>Reasons:<a href="concerns.html">Top 10 Concerns</a></p>
-
-  </section>
-
-  <footer>
-    <p>This is an informational site for public review.</p>
   </footer>
-
-
 </body>
-
 </html>

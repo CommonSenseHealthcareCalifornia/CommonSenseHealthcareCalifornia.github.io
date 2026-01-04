@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>California Commonsense Healthcare System (CCHS) Infographic</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        body {
+            background: #f3f6fb;
+            color: #1f2933;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .infographic {
+            max-width: 1100px;
+            background: #ffffff;
+            border-radius: 18px;
+            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.18);
+            padding: 28px 32px 32px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 24px;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 16px;
+        }
+
+        .title {
+            font-size: 26px;
+            font-weight: 800;
+            color: #1d4ed8;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            color: #4b5563;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-gap: 18px;
+        }
+
+        .card {
+            background: #f9fafb;
+            border-radius: 14px;
+            padding: 14px 14px 16px;
+            border: 1px solid #e5e7eb;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.06), transparent);
+            opacity: 0.85;
+            pointer-events: none;
+        }
+
+        .card-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 4px;
+        }
+
+        .icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            background: #e0edff;
+            color: #1d4ed8;
+            flex-shrink: 0;
+        }
+
+        .card-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .card-body {
+            font-size: 13px;
+            color: #4b5563;
+            line-height: 1.5;
+        }
+
+        .card-body ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 4px;
+        }
+
+        .card-body li {
+            margin-bottom: 3px;
+            display: flex;
+            gap: 6px;
+        }
+
+        .card-body li::before {
+            content: "•";
+            color: #2563eb;
+            font-weight: 700;
+            margin-top: 1px;
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 4px;
+        }
+
+        .pill {
+            border-radius: 999px;
+            padding: 3px 10px;
+            font-size: 11px;
+            background: #e0edff;
+            color: #1d4ed8;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #6b7280;
+            margin-bottom: 4px;
+        }
+
+        .highlight {
+            color: #111827;
+            font-weight: 600;
+        }
+
+        .footer {
+            margin-top: 18px;
+            font-size: 12px;
+            color: #6b7280;
+            text-align: center;
+        }
+
+        @media (max-width: 800px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .infographic {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="infographic">
+        <div class="header">
+            <div class="title">California Commonsense Healthcare System (CCHS)</div>
+            <div class="subtitle">Comprehensive, affordable, high‑quality care for every Californian</div>
+        </div>
+
+        <div class="grid">
+            <!-- What is CCHS -->
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-header">
+                        <div class="icon">🏥</div>
+                        <div>
+                            <div class="section-label">Overview</div>
+                            <div class="card-title">What Is CCHS?</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            A Comprehensive, publicly administered healthcare system
+                            guaranteeing comprehensive, high‑quality care for all U.S. citizens and legal residents of
+                            California — with no premiums, co‑pays, deductibles, or out‑of‑pocket
+                            costs for medically necessary services.
+                        </p>
+                        <div class="pill-row">
+                            <div class="pill">Comprehensive</div>
+                            <div class="pill">Publicly Administered</div>
+                            <div class="pill">No Bills</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why California needs CCHS -->
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-header">
+                        <div class="icon">⚠️</div>
+                        <div>
+                            <div class="section-label">The Problem</div>
+                            <div class="card-title">Why California Needs CCHS</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Fragmented coverage: private plans, Medi‑Cal, Medicare, and marketplace plans.</li>
+                            <li>High premiums, deductibles, and medical debt.</li>
+                            <li>Administrative waste and confusing billing systems.</li>
+                            <li>Unequal access by income, race, and region.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- What CCHS covers -->
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-header">
+                        <div class="icon">🩺</div>
+                        <div>
+                            <div class="section-label">Benefits</div>
+                            <div class="card-title">What CCHS Covers</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Primary and specialty care</li>
+                            <li>Hospitalization and emergency services</li>
+                            <li>Dental and vision care</li>
+                            <li>Mental health and substance use treatment</li>
+                            <li>Prescription drugs</li>
+                            <li>Long‑term care (home care, skilled nursing, hospice)</li>
+                            <li>Preventive and wellness services</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key features -->
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-header">
+                        <div class="icon">✨</div>
+                        <div>
+                            <div class="section-label">Core Design</div>
+                            <div class="card-title">Key Features</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>
+                                Comprehensive Coverage:
+                                every legal resident and U.S. citizen in California is automatically covered.
+                            </li>
+                            <li>
+                                No Financial Barriers:
+                                no premiums, deductibles, co‑pays, or surprise bills for covered services.
+                            </li>
+                            <li>
+                                Provider Choice:
+                                patients can see any licensed provider participating in CCHS.
+                            </li>
+                            <li>
+                                Central Malpractice Fund:
+                                state‑run malpractice coverage for all CCHS providers.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Smart Health Access System -->
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-header">
+                        <div class="icon">💳</div>
+                        <div>
+                            <div class="section-label">Digital Infrastructure</div>
+                            <div class="card-title">Smart Health Access System (SHAS)</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p>
+                            A statewide digital health identity and integrated record system called the
+                            California Health Access ID (CHAI).
+                        </p>
+                        <ul>
+                            <li>Digital + physical health ID.</li>
+                            <li>Encrypted medical history and prescriptions.</li>
+                            <li>Integrated with hospitals, clinics, pharmacies, labs.</li>
+                            <li>Reduces duplicate tests and admin friction.</li>
+                            <li>Supports real‑time eligibility, billing, and emergency access.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Role of private insurance -->
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-header">
+                        <div class="icon">🛡️</div>
+                        <div>
+                            <div class="section-label">Private Market</div>
+                            <div class="card-title">Role of Private Insurance</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>
+                                Supplemental plans: elective, luxury, or alternative services not covered by CCHS.
+                            </li>
+                            <li>
+                                Parallel plans:
+                                may cover core services but cannot charge more than CCHS or bypass queues.
+                            </li>
+                            <li>
+                                Regulated by an Insurance Utility Commission (IUC)
+                                with profit caps and strict oversight.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Funding -->
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-header">
+                        <div class="icon">💰</div>
+                        <div>
+                            <div class="section-label">How It’s Paid For</div>
+                            <div class="card-title">Funding CCHS</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Payroll tax on earnings above 250% of the Federal Poverty
+                                Level.</li>
+                            <li>Redirected state healthcare spending.</li>
+                            <li>Integrated Medi‑Cal and Medicare funds.</li>
+                            <li>Grants and donations for specific programs.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Benefits -->
+            <div class="card">
+                <div class="card-inner">
+                    <div class="card-header">
+                        <div class="icon">🌉</div>
+                        <div>
+                            <div class="section-label">Impact</div>
+                            <div class="card-title">Benefits for Californians & Providers</div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Comprehensive, equitable access to care.</li>
+                            <li>Protection from medical debt and financial hardship.</li>
+                            <li>Lower system‑wide costs and reduced waste.</li>
+                            <li>Improved public health and long‑term outcomes.</li>
+                            <li>Less paperwork and burnout for doctors; predictable payments and integrated records.
+                            </li>
+                        </ul>
+                        <div class="pill-row">
+                            <div class="pill">Equity</div>
+                            <div class="pill">Efficiency</div>
+                            <div class="pill">Sustainability</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            California Commonsense Healthcare System (CCHS) • Draft policy concept for comprehensive healthcare in
+            California
+        </div>
+    </div>
+</body>
+
+</html>
