@@ -1,116 +1,172 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CHS – Keep Your Doctor</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CHS — Keep Your Doctor</title>
+  <meta name="description" content="Under the California Commonsense Healthcare System (CHS), you can keep your doctor. Continuity-of-care, simplified contracting, and unified records make access stable, affordable, and easier." />
+
+  <!-- Dark theme (consistent with other pages) -->
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
+    :root{
+      --bg:#0b1b2b; --bg-alt:#0f2438;
+      --primary:#2bb673; --accent:#3aa0ff;
+      --text:#e9f1f7; --muted:#b9c7d3;
+      --card:#102536; --border:#1e3a52;
+      --shadow:0 10px 20px rgba(3,12,20,.25);
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% 0%, #12314a 0%, var(--bg) 45%, #06131f 100%),
+        linear-gradient(180deg, var(--bg) 0%, #081624 100%);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+      line-height:1.55;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Header / Nav */
+    header{
+      position:sticky; top:0; z-index:1000;
+      backdrop-filter:saturate(120%) blur(8px);
+      background-color:rgba(8,22,36,0.7);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{
+      max-width:1100px; margin:auto;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 20px;
+    }
+    .brand{display:flex; align-items:center; gap:12px; font-weight:700}
+    .brand .logo{
+      width:36px; height:36px; border-radius:8px;
+      background:linear-gradient(135deg, var(--accent), var(--primary));
+      box-shadow:var(--shadow);
+    }
+    .menu{display:flex; gap:18px; flex-wrap:wrap}
+    .menu a{color:var(--text); opacity:.9; padding:8px 10px; border-radius:8px}
+    .menu a:hover{background-color:#0e1f31}
+
+    /* Lead / hero */
+    .wrap{max-width:1100px; margin:38px auto; padding:0 20px}
+    .lead{
+      background:linear-gradient(180deg, #0e2132 0%, #0b1d2d 100%);
+      border:1px solid var(--border); border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:26px;
+    }
+    .title{
+      font-size:clamp(1.6rem, 2.6vw + 1rem, 2.3rem);
+      line-height:1.2; margin:0 0 10px;
+    }
+    .subtitle{color:var(--muted); margin:8px 0 14px}
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      background-color:#0f2a40; color:var(--muted);
+      border:1px solid var(--border); border-radius:999px;
+      padding:6px 12px; font-size:.88rem; margin-bottom:8px;
     }
 
-    header,
-    nav,
-    section,
-    footer {
-      padding: 20px;
-      margin: auto;
-      max-width: 1000px;
+    /* Cards / grid */
+    .grid{display:grid; gap:18px; grid-template-columns:1fr 1fr}
+    .card{
+      background-color:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px;
     }
+    .card h2{margin-top:0; font-size:1.2rem}
+    .card ul{margin:8px 0 0 22px}
+    .note{color:var(--muted)}
 
-    header {
-      background-color: #00796B;
-      color: white;
-    }
+    @media (max-width:900px){ .grid{grid-template-columns:1fr} }
 
-    nav a {
-      margin-right: 20px;
-      text-decoration: none;
-      color: #00796B;
+    /* Footer */
+    footer{
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      padding:24px 20px; text-align:center;
+      background-color:#0a1a29; margin-top:30px;
     }
-
-    section {
-      background-color: white;
-      margin-top: 20px;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-    }
-
-    h2 {
-      color: #00796B;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.9em;
-      color: #666;
-    }
+    :focus-visible{outline:2px solid var(--accent); outline-offset:2px}
   </style>
 </head>
-
 <body>
-  <header>
-    <h1>California Commonsense Healthcare System (CHS)</h1>
-    <p>A Unified Vision for Affordable, Accessible Healthcare in California</p>
+  <!-- Header / Navigation -->
+  <header role="banner" aria-label="Site header">
+    <nav class="nav" aria-label="Primary">
+      <div class="brand" aria-label="Brand">
+        <span class="logo" aria-hidden="true"></span>
+        <span>California Commonsense Healthcare System</span>
+      </div>
+      <div class="menu">
+        <a href="index.html">Back to Main Site</a>
+        <a href="#keepdoctor">Keep Your Doctor</a>
+        <a href="fullproposal.html">Full Proposal</a>
+      </div>
+    </nav>
   </header>
 
-  <nav>
-    <a href="#keepdoctor">Keep Your Doctor</a>
-    <a href="index.html">Back to Main Site</a>
-  </nav>
+  <!-- Lead / Hero -->
+  <main class="wrap">
+    <article class="lead" id="keepdoctor">
+      <div class="badge">Continuity of Care</div>
+      <h1 class="title">You Can Keep Your Doctor Under CHS</h1>
+      <p class="subtitle">
+        CHS is designed so that patients can continue seeing the doctors, specialists, and clinics they rely on today—without losing access due to job changes, insurer withdrawals, or plan switches. Providers participate in a single, streamlined system and can see all CHS‑covered patients if they meet statewide clinical standards. <!-- Adapted from your content -->
+      </p>
+      <p class="note">
+        Most physicians and healthcare facilities already contract with multiple insurers and public programs; CHS builds on that reality with simplified contracting and unified records (SHAS) for better coordination. <!-- Adapted from your content -->
+      </p>
+    </article>
 
-  <section id="keepdoctor">
-    <h2>You Can Keep Your Doctor Under CHS</h2>
+    <!-- Two-column cards -->
+    <section class="grid" aria-label="Why it matters & how it works">
+      <article class="card">
+        <h2>Why This Matters</h2>
+        <ul>
+          <li><strong>Continuity of care:</strong> Long‑term patient‑clinician relationships support better outcomes, fewer hospitalizations, and appropriate use of preventive services.</li>
+          <li><strong>Reduced administrative barriers:</strong> Less insurer‑by‑insurer paperwork means more time for direct care.</li>
+          <li><strong>More stable access:</strong> Access isn’t tied to employment or a specific plan’s network.</li>
+          <li><strong>Better coordination:</strong> Shared standards and unified information let your doctor coordinate smoothly with specialists, hospitals, and pharmacies.</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h2>How CHS Makes This Possible</h2>
+        <ul>
+          <li>All licensed providers who meet quality and equity standards may participate.</li>
+          <li>Payment rates, contracting, and billing are simplified and centralized.</li>
+          <li>The Smart Health Access System (SHAS) keeps records and referrals consistent across providers.</li>
+          <li>Clinics and hospitals are encouraged to enroll: participation reduces admin costs and expands access beyond coverage restrictions.</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Single card: Continuity-of-care provisions -->
+    <section class="card" aria-label="Continuity-of-care provisions">
+      <h2>Continuity‑of‑Care Provisions</h2>
+      <p>
+        The goal of CHS is stable, equitable access to care without disrupting established patient‑provider relationships. Under the new system, <em>your doctor can stay your doctor</em>, and the process of seeking care becomes simpler and more consistent for both patients and providers. <!-- Adapted from your content -->
+      </p>
+      <p class="note">
+        This page summarizes continuity‑of‑care features and how CHS supports your existing doctor‑patient relationship.
+      </p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
     <p>
-      CHS is designed so that patients can continue seeing the doctors, specialists, and clinics they rely on today.
-      Most physicians and healthcare facilities already contract with multiple insurers and public programs, and CHS
-      builds on that reality by allowing providers to participate directly in a single, streamlined system. This means
-      that if your doctor practices in California and meets statewide clinical standards, they can see all CHS-covered
-      patients without needing to change offices, move networks, or renegotiate multiple insurance contracts.
+      This is an informational page for public review. Return to the
+      <a href="index.html">main site</a>, read the <a href="fullproposal.html">full proposal</a>, or explore the <a href="actuarial_funding.html">costs & savings analysis</a>.
     </p>
-
-    <h3>Why This Matters</h3>
-    <ul>
-      <li><strong>Continuity of care:</strong> Long-term relationships between patients and clinicians are associated 
-        with better health outcomes, fewer hospitalizations, and more appropriate use of medications and preventive 
-        services.</li>
-
-      <li><strong>Reduced administrative barriers:</strong> Providers spend less time dealing with insurer-by-insurer 
-        paperwork, increasing the time they can spend on direct patient care.</li>
-
-      <li><strong>More stable access:</strong> CHS eliminates the risk of losing access to your doctor due to job 
-        changes, insurer withdrawals, employer plan switches, or premium increases.</li>
-
-      <li><strong>Better coordination:</strong> Shared standards and a unified platform for health information allow 
-        your doctor to communicate more easily with specialists, hospitals, and pharmacies.</li>
-    </ul>
-
-    <h3>How CHS Makes This Possible</h3>
-    <ul>
-      <li>All licensed providers in California who meet established quality and equity standards may participate.</li>
-      <li>Payment rates, contracting, and billing are simplified and centralized through the CHS system.</li>
-      <li>The Smart Health Access System (SHAS) keeps records and referrals consistent across all providers, reducing 
-        delays and improving accuracy.</li>
-      <li>Clinics and hospitals are encouraged to enroll because participation reduces administrative costs and expands 
-        their ability to treat patients without coverage restrictions.</li>
-    </ul>
-
-    <p>
-      The goal of CHS is to give every resident stable access to care without disrupting established patient-provider 
-      relationships. Under the new system, your doctor can stay your doctor, and the entire process of receiving care 
-      becomes simpler and more consistent for both patients and providers.
-    </p>
-  </section>
-
-  <footer>
-    <p>This page explains continuity-of-care provisions within CHS and how they support stable access to your existing doctor.</p>
   </footer>
-
 </body>
-
 </html>

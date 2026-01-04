@@ -1,137 +1,181 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CHS – Why Doctors Benefit</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CHS — Why Doctors Benefit</title>
+  <meta name="description" content="Learn why California Commonsense Healthcare System (CHS) benefits doctors: less admin burden, centralized malpractice coverage, and greater clinical freedom." />
+
+  <!-- Dark theme -->
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f9f9f9;
+    :root{
+      --bg:#0b1b2b; --bg-alt:#0f2438;
+      --primary:#2bb673; --accent:#3aa0ff;
+      --text:#e9f1f7; --muted:#b9c7d3;
+      --card:#102536; --border:#1e3a52;
+      --shadow:0 10px 20px rgba(3,12,20,.25);
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% 0%, #12314a 0%, var(--bg) 45%, #06131f 100%),
+        linear-gradient(180deg, var(--bg) 0%, #081624 100%);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+      line-height:1.55;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Header */
+    header{
+      position:sticky; top:0; z-index:1000;
+      backdrop-filter:saturate(120%) blur(8px);
+      background-color:rgba(8,22,36,0.7);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{
+      max-width:1100px; margin:auto;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 20px;
+    }
+    .brand{display:flex; align-items:center; gap:12px; font-weight:700}
+    .brand .logo{
+      width:36px; height:36px; border-radius:8px;
+      background:linear-gradient(135deg, var(--accent), var(--primary));
+      box-shadow:var(--shadow);
+    }
+    .menu{display:flex; gap:18px; flex-wrap:wrap}
+    .menu a{color:var(--text); opacity:.9; padding:8px 10px; border-radius:8px}
+    .menu a:hover{background-color:#0e1f31}
+
+    /* Layout */
+    .wrap{max-width:1100px; margin:38px auto; padding:0 20px}
+    .lead{
+      background:linear-gradient(180deg, #0e2132 0%, #0b1d2d 100%);
+      border:1px solid var(--border); border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:26px;
+    }
+    .title{
+      font-size:clamp(1.6rem, 2.6vw + 1rem, 2.3rem);
+      line-height:1.2; margin:0 0 10px;
+    }
+    .subtitle{color:var(--muted); margin:8px 0 14px}
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      background-color:#0f2a40; color:var(--muted);
+      border:1px solid var(--border); border-radius:999px;
+      padding:6px 12px; font-size:.88rem; margin-bottom:8px;
     }
 
-    header,
-    nav,
-    section,
-    footer {
-      padding: 20px;
-      margin: auto;
-      max-width: 1000px;
+    /* Cards */
+    .card{
+      background-color:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px; margin:18px 0;
     }
+    .card h2{margin-top:0; font-size:1.2rem}
+    .card ul{margin:8px 0 0 22px}
+    .note{color:var(--muted)}
 
-    header {
-      background-color: #00796B;
-      color: white;
+    footer{
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      padding:24px 20px; text-align:center;
+      background-color:#0a1a29; margin-top:30px;
     }
-
-    nav a {
-      margin-right: 20px;
-      text-decoration: none;
-      color: #00796B;
-    }
-
-    section {
-      background-color: white;
-      margin-top: 20px;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-    }
-
-    h2 {
-      color: #00796B;
-    }
-
-    footer {
-      text-align: center;
-      font-size: 0.9em;
-      color: #666;
-    }
+    :focus-visible{outline:2px solid var(--accent); outline-offset:2px}
   </style>
 </head>
-
 <body>
-  <header>
-    <h1>California Commonsense Healthcare System (CHS)</h1>
-    <p>A Unified Vision for Affordable, Accessible Healthcare in California</p>
+  <!-- Header -->
+  <header role="banner" aria-label="Site header">
+    <nav class="nav" aria-label="Primary">
+      <div class="brand">
+        <span class="logo" aria-hidden="true"></span>
+        <span>California Commonsense Healthcare System</span>
+      </div>
+      <div class="menu">
+        index.htmlBack to Main Site</a>
+        fullproposal.htmlFull Proposal</a>
+      </div>
+    </nav>
   </header>
 
-  <nav>
-    <a href="#doctors">Why Doctors Support CHS</a>
-    <a href="index.html">Back to Main Site</a>
-  </nav>
+  <!-- Lead -->
+  <main class="wrap">
+    <article class="lead" id="doctors">
+      <div class="badge">Provider Benefits</div>
+      <h1 class="title">Why Doctors Benefit From CHS</h1>
+      <p class="subtitle">
+        CHS improves patient access and strengthens the day‑to‑day experience of medical professionals by replacing today’s fragmented multi‑insurer environment with a unified, simplified structure.
+      </p>
+      <p class="note">
+        The current system forces clinicians to manage complex billing rules, prior authorizations, and variable reimbursement rates. CHS reduces overhead and lets physicians focus on clinical care.
+      </p>
+    </article>
 
-  <section id="doctors">
-    <h2>Why Doctors Benefit From CHS</h2>
+    <!-- Sections -->
+    <section class="card">
+      <h2>1. Less Administrative Burden</h2>
+      <ul>
+        <li>Single statewide system replaces dozens of insurers and their paperwork.</li>
+        <li>Standardized billing and coding reduce admin time and staffing needs.</li>
+        <li>Predictable payment schedules simplify budgeting and reduce disputes.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>2. No Longer Working for Insurance Companies</h2>
+      <p>
+        Physicians currently spend substantial time navigating insurer requirements. CHS removes these barriers by establishing statewide coverage standards so doctors make decisions based on clinical judgment—not insurer rules.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>3. Centralized Malpractice Coverage</h2>
+      <ul>
+        <li>Publicly administered malpractice program replaces private negotiations.</li>
+        <li>Lower premiums and less volatility than commercial markets.</li>
+        <li>Uniform standards for credentialing and claims create predictability.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>4. Greater Clinical Freedom</h2>
+      <ul>
+        <li>No insurer‑specific cost‑sharing rules—care follows clinical guidelines.</li>
+        <li>Consistent coverage rules support preventive and chronic care management.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>5. Reduced Claim Worries</h2>
+      <ul>
+        <li>Unified payer system minimizes disputes and denials.</li>
+        <li>Simplified appeals process reduces delays and admin overhead.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <p>
+        By reducing administrative complexity, stabilizing malpractice coverage, and giving clinicians more control over treatment decisions, CHS supports a more sustainable and satisfying professional environment for California’s healthcare workforce.
+      </p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
     <p>
-      The CHS system is designed not only to improve patient access, but also to strengthen the day-to-day experience of
-      medical professionals. The current multi-insurer structure requires clinicians to manage complex billing rules,
-      prior authorizations, variable reimbursement rates, and extensive documentation demands that differ from insurer
-      to insurer. CHS replaces this fragmented environment with a unified, simplified structure that reduces overhead
-      and allows physicians to focus more directly on clinical care.
+      This is an informational page for public review. Return to the
+      index.htmlmain site</a>, read the fullproposal.htmlfull proposal</a>, or explore actuarial_funding.htmlcosts & savings analysis</a>.
     </p>
-
-    <h3>1. Less Administrative Burden</h3>
-    <ul>
-      <li>Under CHS, providers interact with a single statewide system instead of dozens of insurers, each with their
-        own authorization rules and paperwork.</li>
-      <li>Standardized billing, coding, and payment rules reduce administrative time and allow practices to operate with
-        fewer non-clinical staff dedicated to insurance interactions.</li>
-      <li>Predictable payment schedules help clinics plan budgets and reduce time spent on appeals or disputed claims.</li>
-    </ul>
-
-    <h3>2. No Longer Working for Insurance Companies</h3>
-    <p>
-      Physicians currently spend a substantial portion of their workday navigating insurer requirements that influence
-      which treatments are approved, how referrals are handled, and what services are reimbursed. CHS removes these
-      insurer-imposed barriers by establishing statewide coverage standards. Doctors make treatment decisions based on
-      clinical judgment rather than insurer authorization criteria, aligning care more closely with professional best
-      practices.
-    </p>
-
-    <h3>3. Centralized Malpractice Coverage</h3>
-    <ul>
-      <li>CHS includes a publicly administered malpractice program that replaces the need for individual physicians or
-        practices to negotiate private malpractice insurance.</li>
-      <li>Centralized coverage reduces premium costs and removes the annual volatility associated with commercial
-        malpractice markets.</li>
-      <li>Uniform standards for credentialing, documentation, and claims processing create greater predictability and
-        transparency for providers.</li>
-    </ul>
-
-    <h3>4. Greater Clinical Freedom</h3>
-    <ul>
-      <li>With fewer billing restrictions and no insurer-specific cost-sharing rules, physicians can focus on
-        professional judgment without worrying about which procedures or medications will be denied.</li>
-      <li>Consistent coverage rules ensure that clinical guidelines—not insurance networks or plan types—drive patient
-        care.</li>
-      <li>Providers can engage in preventive, long-term, and chronic care management without concerns that coverage
-        limits will disrupt treatment continuity.</li>
-    </ul>
-
-    <h3>5. Reduced Claim Worries</h3>
-    <ul>
-      <li>Because CHS operates as a unified payer, claims are processed through a single streamlined system designed to
-        minimize disputes.</li>
-      <li>Fewer denials and a simplified appeals process lower administrative overhead and reduce delays in payment.</li>
-      <li>Clinicians spend less time defending routine claims or navigating inconsistent billing policies.</li>
-    </ul>
-
-    <p>
-      By reducing administrative complexity, stabilizing malpractice coverage, and giving clinicians more control over
-      treatment decisions, CHS aims to support a more sustainable and satisfying professional environment for
-      California’s healthcare workforce. The system is built to strengthen clinical autonomy, reduce operational stress,
-      and allow physicians to dedicate more time to patient care.
-    </p>
-  </section>
-
-  <footer>
-    <p>This page summarizes how CHS improves working conditions and professional autonomy for healthcare providers.</p>
   </footer>
-
 </body>
-
 </html>

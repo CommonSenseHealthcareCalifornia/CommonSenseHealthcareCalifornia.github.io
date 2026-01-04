@@ -5,41 +5,175 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>10 Reasons People Oppose Universal Healthcare (And Why They're Wrong)</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 1rem;
-      background-color: #f9f9f9;
-      color: #333;
+    :root{
+      --bg: #1f354a;
+      --bg-alt:#0f2438;
+      --primary:#2bb673; /* green */
+      --accent:#3aa0ff;  /* blue */
+      --text:#e9f1f7;
+      --muted:#b9c7d3;
+      --card:#102536;
+      --border:#1e3a52;
+      --shadow: 0 10px 20px rgba(3,12,20,.25);
+      --radius: 14px;
     }
-    h1, h2 {
-      color: #2c3e50;
+
+    /* Reset & base */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--text);
+      background-color:var(--bg);
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+      line-height:1.55;
+	  max-width: 900px; margin: auto; padding: 20px;
     }
-    section {
-      margin-bottom: 2rem;
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Header / Nav */
+    header{
+      position:sticky; top:0; z-index:1000;
+      backdrop-filter:saturate(120%) blur(8px);
+      background-color:rgba(8,22,36,0.7);
+      border-bottom:1px solid var(--border);
     }
-    .reason {
-      margin-bottom: 1.5rem;
+    .nav{
+      max-width:1100px; margin:auto;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 20px;
     }
-    .reason h3 {
-      margin: 0.5rem 0;
-      color: #2980b9;
+    .brand{
+      display:flex; align-items:center; gap:12px; font-weight:700;
+      color:var(--text);
     }
-    .label {
-      font-weight: bold;
+    .brand .logo{
+      width:36px; height:36px; border-radius:8px;
+      background:linear-gradient(135deg, var(--accent), var(--primary));
+      box-shadow: var(--shadow);
     }
-    a {
-      color: #2980b9;
-      text-decoration: none;
+    .menu{display:flex; gap:18px; flex-wrap:wrap}
+    .menu a{
+      color:var(--text); opacity:.9; padding:8px 10px; border-radius:8px;
     }
-    a:hover {
-      text-decoration: underline;
+    .menu a:hover{background-color:#0e1f31}
+
+    /* Hero */
+    .hero{
+      max-width:800px; margin:40px auto 20px; padding:20px;
+      display:grid; grid-template-columns:1.15fr .85fr; gap:24px;
     }
+    .hero-card{
+      background:linear-gradient(180deg, #0e2132 0%, #0b1d2d 100%);
+      border:1px solid var(--border); border-radius:var(--radius);
+      box-shadow: var(--shadow);
+      padding:28px;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      background-color:#0f2a40; color:var(--muted);
+      border:1px solid var(--border); border-radius:999px;
+      padding:6px 12px; font-size:.88rem; margin-bottom:14px;
+    }
+    .title{
+      font-size:clamp(1.6rem, 2.8vw + 1rem, 2.4rem);
+      line-height:1.2; margin:4px 0 12px;
+      letter-spacing:.2px;
+    }
+    .subtitle{color:var(--muted); font-size:1.02rem; margin:0 0 18px}
+    .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:8px}
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:12px 16px; border-radius:12px; font-weight:600;
+      border:1px solid var(--border);
+      background-color:#103049; color:var(--text);
+    }
+    .btn.primary{
+      background:linear-gradient(135deg, var(--primary) 0%, #1f8a56 100%);
+      color:#041a12; border: none;
+    }
+    .btn.transparent{background-color:transparent}
+
+    /* Cards grid */
+    .grid{
+      max-width:1100px; margin:10px auto 50px; padding:0 20px;
+      display:grid; gap:18px;
+      grid-template-columns:repeat(3, 1fr);
+    }
+    .card{
+      background-color:var(--card);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+      padding:22px;
+    }
+    .card h3{margin-top:0; font-size:1.15rem}
+    .card p{color:var(--muted)}
+    .card .more{margin-top:12px; display:inline-flex; gap:8px; align-items:center}
+
+    /* Highlight panel */
+    .panel{
+      max-width:1100px; margin:0 auto 50px; padding:20px;
+    }
+    .highlight{
+      border:1px dashed #28557a;
+      border-radius:var(--radius);
+      background:linear-gradient(180deg, #0d263b 0%, #0b2033 100%);
+      padding:22px;
+    }
+    .kpi{
+      display:flex; align-items:center; gap:16px; flex-wrap:wrap;
+      margin-top:10px;
+    }
+    .kpi-item{
+      background-color:#0f2c46; border:1px solid var(--border);
+      border-radius:12px; padding:12px 16px;
+    }
+    .kpi-item strong{color:#b7e4c2}
+
+    /* Footer */
+    footer{
+      border-top:1px solid var(--border);
+      color:var(--muted);
+      padding:24px 20px; text-align:center;
+      background-color:#0a1a29;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 620px){
+      .menu{display:none}
+      .grid{grid-template-columns:1fr}
+    }
+
+    /* Accessibility helpers */
+    .sr-only{position:absolute; left:-9999px}
+    :focus-visible{outline:2px solid var(--accent); outline-offset:2px}
   </style>
 </head>
 <body>
+  	  <!-- Header / Navigation -->
+  <header role="banner" aria-label="Site header">
+    <nav class="nav" aria-label="Primary">
+      <div class="brand" aria-label="Brand">
+        <span class="logo" aria-hidden="true"></span>
+        <span>California Commonsense Healthcare System</span>
+      </div>
+      <div class="menu">
+        <a href="index.html">Home</a>
+        <a href="why_doctors_want_CHS.html">Doctors Support CHS</a>
+        <a href="your_doctor.html">Keep Your Doctor</a>
+        <a href="fullproposal.html">Proposal</a>
+        <a href="actuarial_funding.html">Actuarial Analysis</a>
+        <a href="concerns.html">Concerns</a>
+        <a href="infographic.html" aria-label="Infographic">Infographic</a>
+      </div>
+    </nav>
+  </header>
   <h1>10 Reasons People Oppose Universal Healthcare (And Why They're Wrong)</h1>
 
   <section>
@@ -113,10 +247,6 @@
       <p><span class="label">Evidence:</span> Physicians in countries with universal healthcare report high job satisfaction and competitive earnings. <a href="https://www.commonwealthfund.org/publications/issue-briefs/2023/jan/us-health-care-global-perspective-2022" target="_blank">Source</a></p>
     </div>
   </section>
-
-  <footer>
-    <p><a href="index.html">Front Page</a></p>
-  </footer>
 </body>
 <footer>
     <center><a href="index.html">Front Page</a></center>
