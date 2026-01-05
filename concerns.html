@@ -1,163 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="theme.css">
   <title>10 Reasons People Oppose Universal Healthcare (And Why They're Wrong)</title>
-  <style>
-    :root{
-      --bg: #1f354a;
-      --bg-alt:#0f2438;
-      --primary:#2bb673; /* green */
-      --accent:#3aa0ff;  /* blue */
-      --text:#e9f1f7;
-      --muted:#b9c7d3;
-      --card:#102536;
-      --border:#1e3a52;
-      --shadow: 0 10px 20px rgba(3,12,20,.25);
-      --radius: 14px;
-    }
 
-    /* Reset & base */
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      color:var(--text);
-      background-color:var(--bg);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-      line-height:1.55;
-	  max-width: 900px; margin: auto; padding: 20px;
-    }
-    a{color:var(--accent);text-decoration:none}
-    a:hover{text-decoration:underline}
-
-    /* Header / Nav */
-    header{
-      position:sticky; top:0; z-index:1000;
-      backdrop-filter:saturate(120%) blur(8px);
-      background-color:rgba(8,22,36,0.7);
-      border-bottom:1px solid var(--border);
-    }
-    .nav{
-      max-width:1100px; margin:auto;
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 20px;
-    }
-    .brand{
-      display:flex; align-items:center; gap:12px; font-weight:700;
-      color:var(--text);
-    }
-    .brand .logo{
-      width:36px; height:36px; border-radius:8px;
-      background:linear-gradient(135deg, var(--accent), var(--primary));
-      box-shadow: var(--shadow);
-    }
-    .menu{display:flex; gap:18px; flex-wrap:wrap}
-    .menu a{
-      color:var(--text); opacity:.9; padding:8px 10px; border-radius:8px;
-    }
-    .menu a:hover{background-color:#0e1f31}
-
-    /* Hero */
-    .hero{
-      max-width:800px; margin:40px auto 20px; padding:20px;
-      display:grid; grid-template-columns:1.15fr .85fr; gap:24px;
-    }
-    .hero-card{
-      background:linear-gradient(180deg, #0e2132 0%, #0b1d2d 100%);
-      border:1px solid var(--border); border-radius:var(--radius);
-      box-shadow: var(--shadow);
-      padding:28px;
-    }
-    .badge{
-      display:inline-flex; align-items:center; gap:8px;
-      background-color:#0f2a40; color:var(--muted);
-      border:1px solid var(--border); border-radius:999px;
-      padding:6px 12px; font-size:.88rem; margin-bottom:14px;
-    }
-    .title{
-      font-size:clamp(1.6rem, 2.8vw + 1rem, 2.4rem);
-      line-height:1.2; margin:4px 0 12px;
-      letter-spacing:.2px;
-    }
-    .subtitle{color:var(--muted); font-size:1.02rem; margin:0 0 18px}
-    .cta-row{display:flex; gap:12px; flex-wrap:wrap; margin-top:8px}
-    .btn{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:12px 16px; border-radius:12px; font-weight:600;
-      border:1px solid var(--border);
-      background-color:#103049; color:var(--text);
-    }
-    .btn.primary{
-      background:linear-gradient(135deg, var(--primary) 0%, #1f8a56 100%);
-      color:#041a12; border: none;
-    }
-    .btn.transparent{background-color:transparent}
-
-    /* Cards grid */
-    .grid{
-      max-width:1100px; margin:10px auto 50px; padding:0 20px;
-      display:grid; gap:18px;
-      grid-template-columns:repeat(3, 1fr);
-    }
-    .card{
-      background-color:var(--card);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow: var(--shadow);
-      padding:22px;
-    }
-    .card h3{margin-top:0; font-size:1.15rem}
-    .card p{color:var(--muted)}
-    .card .more{margin-top:12px; display:inline-flex; gap:8px; align-items:center}
-
-    /* Highlight panel */
-    .panel{
-      max-width:1100px; margin:0 auto 50px; padding:20px;
-    }
-    .highlight{
-      border:1px dashed #28557a;
-      border-radius:var(--radius);
-      background:linear-gradient(180deg, #0d263b 0%, #0b2033 100%);
-      padding:22px;
-    }
-    .kpi{
-      display:flex; align-items:center; gap:16px; flex-wrap:wrap;
-      margin-top:10px;
-    }
-    .kpi-item{
-      background-color:#0f2c46; border:1px solid var(--border);
-      border-radius:12px; padding:12px 16px;
-    }
-    .kpi-item strong{color:#b7e4c2}
-
-    /* Footer */
-    footer{
-      border-top:1px solid var(--border);
-      color:var(--muted);
-      padding:24px 20px; text-align:center;
-      background-color:#0a1a29;
-    }
-
-    /* Responsive */
-    @media (max-width: 900px){
-      .hero{grid-template-columns:1fr}
-      .grid{grid-template-columns:1fr 1fr}
-    }
-    @media (max-width: 620px){
-      .menu{display:none}
-      .grid{grid-template-columns:1fr}
-    }
-
-    /* Accessibility helpers */
-    .sr-only{position:absolute; left:-9999px}
-    :focus-visible{outline:2px solid var(--accent); outline-offset:2px}
-  </style>
 </head>
+
 <body>
 
-    <!-- Header / Navigation -->
+  <!-- Header / Navigation -->
   <header role="banner" aria-label="Site header">
     <nav class="nav" aria-label="Primary">
       <div class="brand" aria-label="Brand">
@@ -172,81 +26,125 @@
   </header>
 
   <!-- Main content -->
-  <h1>10 Reasons People Oppose Universal Healthcare (And Why They're Wrong)</h1>
+  <main class="wrap">
+    <section class="panel">
+      <h1 class="title">10 Reasons People Oppose Universal Healthcare (And Why They're Wrong)</h1>
+    </section>
+    <section class="grid2">
+      <div class="card">
+        <h3>1. "It will raise taxes."</h3>
+        <p><span class="label">Concern:</span> Universal healthcare will require higher taxes to fund.</p>
+        <p><span class="label">Counter:</span> While taxes may increase, individuals would no longer pay premiums,
+          copays, or deductibles — which are often more expensive overall. The total cost per person would likely
+          decrease under a universal system.</p>
+        <p><span class="label">Evidence:</span> A study by the Political Economy Research Institute found that Medicare
+          for All could save the U.S. approximately $5 trillion over a decade by reducing administrative costs and
+          negotiating drug prices. <a
+            href="https://www.citizen.org/news/fact-check-medicare-for-all-would-save-the-u-s-trillions-public-option-would-leave-millions-uninsured-not-garner-savings/"
+            target="_blank">Source</a></p>
+      </div>
 
-  <section>
-    <div class="reason">
-      <h3>1. "It will raise taxes."</h3>
-      <p><span class="label">Concern:</span> Universal healthcare will require higher taxes to fund.</p>
-      <p><span class="label">Counter:</span> While taxes may increase, individuals would no longer pay premiums, copays, or deductibles — which are often more expensive overall. The total cost per person would likely decrease under a universal system.</p>
-      <p><span class="label">Evidence:</span> A study by the Political Economy Research Institute found that Medicare for All could save the U.S. approximately $5 trillion over a decade by reducing administrative costs and negotiating drug prices. <a href="https://www.citizen.org/news/fact-check-medicare-for-all-would-save-the-u-s-trillions-public-option-would-leave-millions-uninsured-not-garner-savings/" target="_blank">Source</a></p>
-    </div>
+      <div class="card">
+        <h3>2. "It reduces the quality of care."</h3>
+        <p><span class="label">Concern:</span> Government-run healthcare leads to worse outcomes.</p>
+        <p><span class="label">Counter:</span> Countries with universal systems often have equal or better outcomes than
+          the U.S. in areas like life expectancy and disease prevention.</p>
+        <p><span class="label">Evidence:</span> The U.S. performs worse in long-term health outcomes measures, such as
+          life expectancy and maternal mortality, compared to other developed countries. <a
+            href="https://www.healthsystemtracker.org/chart-collection/quality-u-s-healthcare-system-compare-countries/"
+            target="_blank">Source</a></p>
+      </div>
 
-    <div class="reason">
-      <h3>2. "It reduces the quality of care."</h3>
-      <p><span class="label">Concern:</span> Government-run healthcare leads to worse outcomes.</p>
-      <p><span class="label">Counter:</span> Countries with universal systems often have equal or better outcomes than the U.S. in areas like life expectancy and disease prevention.</p>
-      <p><span class="label">Evidence:</span> The U.S. performs worse in long-term health outcomes measures, such as life expectancy and maternal mortality, compared to other developed countries. <a href="https://www.healthsystemtracker.org/chart-collection/quality-u-s-healthcare-system-compare-countries/" target="_blank">Source</a></p>
-    </div>
+      <div class="card">
+        <h3>3. "There will be longer wait times."</h3>
+        <p><span class="label">Concern:</span> Patients will face delays under universal care.</p>
+        <p><span class="label">Counter:</span> The U.S. already experiences delays. Universal systems often prioritize
+          by need and maintain timely access for urgent care.</p>
+        <p><span class="label">Evidence:</span> A report by the Center for American Progress indicates that universal
+          coverage need not increase wait times and discusses policy solutions to mitigate any impact. <a
+            href="https://www.americanprogress.org/article/truth-wait-times-universal-coverage-systems/"
+            target="_blank">Source</a></p>
+      </div>
 
-    <div class="reason">
-      <h3>3. "There will be longer wait times."</h3>
-      <p><span class="label">Concern:</span> Patients will face delays under universal care.</p>
-      <p><span class="label">Counter:</span> The U.S. already experiences delays. Universal systems often prioritize by need and maintain timely access for urgent care.</p>
-      <p><span class="label">Evidence:</span> A report by the Center for American Progress indicates that universal coverage need not increase wait times and discusses policy solutions to mitigate any impact. <a href="https://www.americanprogress.org/article/truth-wait-times-universal-coverage-systems/" target="_blank">Source</a></p>
-    </div>
+      <div class="card">
+        <h3>4. "It’s socialist, and socialism doesn’t work."</h3>
+        <p><span class="label">Concern:</span> Government healthcare is socialism and leads to failure.</p>
+        <p><span class="label">Counter:</span> Public services like schools and Medicare are also "socialist." Universal
+          healthcare doesn't abolish capitalism — it ensures basic human rights.</p>
+        <p><span class="label">Evidence:</span> Many capitalist countries, such as Germany and the UK, successfully
+          implement universal healthcare systems. <a
+            href="https://www.commonwealthfund.org/blog/2019/universal-health-coverage-eight-countries"
+            target="_blank">Source</a></p>
+      </div>
 
-    <div class="reason">
-      <h3>4. "It’s socialist, and socialism doesn’t work."</h3>
-      <p><span class="label">Concern:</span> Government healthcare is socialism and leads to failure.</p>
-      <p><span class="label">Counter:</span> Public services like schools and Medicare are also "socialist." Universal healthcare doesn't abolish capitalism — it ensures basic human rights.</p>
-      <p><span class="label">Evidence:</span> Many capitalist countries, such as Germany and the UK, successfully implement universal healthcare systems. <a href="https://www.commonwealthfund.org/blog/2019/universal-health-coverage-eight-countries" target="_blank">Source</a></p>
-    </div>
+      <div class="card">
+        <h3>5. "It will stifle innovation."</h3>
+        <p><span class="label">Concern:</span> Private markets drive innovation, not government.</p>
+        <p><span class="label">Counter:</span> Much innovation is publicly funded through the NIH. Universal systems
+          still support strong medical research and development.</p>
+        <p><span class="label">Evidence:</span> NIH funding contributed to published research associated with every one
+          of the 210 new drugs approved by the FDA between 2010 and 2016. <a
+            href="https://www.pnas.org/doi/10.1073/pnas.1715368115" target="_blank">Source</a></p>
+      </div>
 
-    <div class="reason">
-      <h3>5. "It will stifle innovation."</h3>
-      <p><span class="label">Concern:</span> Private markets drive innovation, not government.</p>
-      <p><span class="label">Counter:</span> Much innovation is publicly funded through the NIH. Universal systems still support strong medical research and development.</p>
-      <p><span class="label">Evidence:</span> NIH funding contributed to published research associated with every one of the 210 new drugs approved by the FDA between 2010 and 2016. <a href="https://www.pnas.org/doi/10.1073/pnas.1715368115" target="_blank">Source</a></p>
-    </div>
+      <div class="card">
+        <h3>6. "People should be responsible for their own health."</h3>
+        <p><span class="label">Concern:</span> Universal care rewards unhealthy behavior.</p>
+        <p><span class="label">Counter:</span> Many factors affecting health are outside personal control. Denying care
+          on moral grounds is unjust and economically short-sighted.</p>
+        <p><span class="label">Evidence:</span> Socioeconomic factors significantly influence health outcomes, and
+          universal healthcare can help mitigate these disparities. <a
+            href="https://www.sciencedirect.com/science/article/pii/S0167629622000844" target="_blank">Source</a></p>
+      </div>
 
-    <div class="reason">
-      <h3>6. "People should be responsible for their own health."</h3>
-      <p><span class="label">Concern:</span> Universal care rewards unhealthy behavior.</p>
-      <p><span class="label">Counter:</span> Many factors affecting health are outside personal control. Denying care on moral grounds is unjust and economically short-sighted.</p>
-      <p><span class="label">Evidence:</span> Socioeconomic factors significantly influence health outcomes, and universal healthcare can help mitigate these disparities. <a href="https://www.sciencedirect.com/science/article/pii/S0167629622000844" target="_blank">Source</a></p>
-    </div>
+      <div class="card">
+        <h3>7. "It will eliminate private insurance."</h3>
+        <p><span class="label">Concern:</span> People will lose choice in coverage.</p>
+        <p><span class="label">Counter:</span> Many countries offer private supplemental insurance. Universal care
+          guarantees a baseline, not restricts options.</p>
+        <p><span class="label">Evidence:</span> In countries like France and Germany, private insurance coexists with
+          universal coverage, offering additional services. <a
+            href="https://www.commonwealthfund.org/blog/2019/universal-health-coverage-eight-countries"
+            target="_blank">Source</a></p>
+      </div>
 
-    <div class="reason">
-      <h3>7. "It will eliminate private insurance."</h3>
-      <p><span class="label">Concern:</span> People will lose choice in coverage.</p>
-      <p><span class="label">Counter:</span> Many countries offer private supplemental insurance. Universal care guarantees a baseline, not restricts options.</p>
-      <p><span class="label">Evidence:</span> In countries like France and Germany, private insurance coexists with universal coverage, offering additional services. <a href="https://www.commonwealthfund.org/blog/2019/universal-health-coverage-eight-countries" target="_blank">Source</a></p>
-    </div>
+      <div class="card">
+        <h3>8. "It’s too expensive."</h3>
+        <p><span class="label">Concern:</span> The U.S. can’t afford it.</p>
+        <p><span class="label">Counter:</span> The U.S. already spends more per capita than any other nation. Universal
+          care could reduce administrative costs and improve efficiency.</p>
+        <p><span class="label">Evidence:</span> The U.S. spends significantly more on healthcare per capita compared to
+          other developed countries, yet has worse health outcomes. <a
+            href="https://www.pgpf.org/article/how-does-the-us-healthcare-system-compare-to-other-countries/"
+            target="_blank">Source</a></p>
+      </div>
 
-    <div class="reason">
-      <h3>8. "It’s too expensive."</h3>
-      <p><span class="label">Concern:</span> The U.S. can’t afford it.</p>
-      <p><span class="label">Counter:</span> The U.S. already spends more per capita than any other nation. Universal care could reduce administrative costs and improve efficiency.</p>
-      <p><span class="label">Evidence:</span> The U.S. spends significantly more on healthcare per capita compared to other developed countries, yet has worse health outcomes. <a href="https://www.pgpf.org/article/how-does-the-us-healthcare-system-compare-to-other-countries/" target="_blank">Source</a></p>
-    </div>
+      <div class="card">
+        <h3>9. "Government is inefficient."</h3>
+        <p><span class="label">Concern:</span> Bureaucracy will ruin healthcare delivery.</p>
+        <p><span class="label">Counter:</span> Private insurance is often more bureaucratic. Medicare has lower
+          administrative costs than private companies.</p>
+        <p><span class="label">Evidence:</span> Private insurance companies spend between 12 and 18 percent on
+          administration costs, while Medicare's administrative costs are around 2 percent. <a
+            href="https://www.politifact.com/factchecks/2017/sep/20/bernie-sanders/comparing-administrative-costs-private-insurance-a/"
+            target="_blank">Source</a></p>
+      </div>
 
-    <div class="reason">
-      <h3>9. "Government is inefficient."</h3>
-      <p><span class="label">Concern:</span> Bureaucracy will ruin healthcare delivery.</p>
-      <p><span class="label">Counter:</span> Private insurance is often more bureaucratic. Medicare has lower administrative costs than private companies.</p>
-      <p><span class="label">Evidence:</span> Private insurance companies spend between 12 and 18 percent on administration costs, while Medicare's administrative costs are around 2 percent. <a href="https://www.politifact.com/factchecks/2017/sep/20/bernie-sanders/comparing-administrative-costs-private-insurance-a/" target="_blank">Source</a></p>
-    </div>
-
-    <div class="reason">
-      <h3>10. "It will hurt doctors’ income and freedom."</h3>
-      <p><span class="label">Concern:</span> Physicians will earn less and lose autonomy.</p>
-      <p><span class="label">Counter:</span> Doctors in universal systems still earn well. Many prefer these systems due to less paperwork and more focus on patient care.</p>
-      <p><span class="label">Evidence:</span> Physicians in countries with universal healthcare report high job satisfaction and competitive earnings. <a href="https://www.commonwealthfund.org/publications/issue-briefs/2023/jan/us-health-care-global-perspective-2022" target="_blank">Source</a></p>
-    </div>
-  </section>
+      <div class="card">
+        <h3>10. "It will hurt doctors’ income and freedom."</h3>
+        <p><span class="label">Concern:</span> Physicians will earn less and lose autonomy.</p>
+        <p><span class="label">Counter:</span> Doctors in universal systems still earn well. Many prefer these systems
+          due to less paperwork and more focus on patient care.</p>
+        <p><span class="label">Evidence:</span> Physicians in countries with universal healthcare report high job
+          satisfaction and competitive earnings. <a
+            href="https://www.commonwealthfund.org/publications/issue-briefs/2023/jan/us-health-care-global-perspective-2022"
+            target="_blank">Source</a></p>
+      </div>
+    </section>
+  </main>
 </body>
 <footer>
-    <center><a href="index.html">Front Page</a></center>
+  <center><a href="index.html">Front Page</a></center>
 </footer>
+
 </html>

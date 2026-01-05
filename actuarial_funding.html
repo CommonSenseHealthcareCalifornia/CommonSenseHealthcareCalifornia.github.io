@@ -1,140 +1,19 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="theme.css">
   <title>CCHS — California Costs & Projected Savings (JS Charts)</title>
-  <meta name="description" content="California-focused analysis with household slider and premium comparison charts rendered with JavaScript (Chart.js).">
+  <meta name="description"
+    content="California-focused analysis with household slider and premium comparison charts rendered with JavaScript (Chart.js).">
 
-  <!-- Dark theme -->
-  <style>
-    :root{
-      --bg:#0b1b2b; --bg-alt:#0f2438;
-      --primary:#2bb673; --accent:#3aa0ff;
-      --text:#e9f1f7; --muted:#b9c7d3;
-      --card:#102536; --border:#1e3a52;
-      --shadow:0 10px 20px rgba(3,12,20,.25);
-      --radius:14px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; color:var(--text);
-      background:
-        radial-gradient(1200px 600px at 10% 0%, #12314a 0%, var(--bg) 45%, #06131f 100%),
-        linear-gradient(180deg, var(--bg) 0%, #081624 100%);
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-      line-height:1.55;
-    }
-    a{color:var(--accent); text-decoration:none}
-    a:hover{text-decoration:underline}
 
-    header{
-      position:sticky; top:0; z-index:1000;
-      backdrop-filter:saturate(120%) blur(8px);
-      background-color:rgba(8,22,36,0.7);
-      border-bottom:1px solid var(--border);
-    }
-    .nav{
-      max-width:1100px; margin:auto;
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 20px;
-    }
-    .brand{display:flex; align-items:center; gap:12px; font-weight:700}
-    .brand .logo{
-      width:36px; height:36px; border-radius:8px;
-      background:linear-gradient(135deg, var(--accent), var(--primary));
-      box-shadow:var(--shadow);
-    }
-    .menu{display:flex; gap:18px; flex-wrap:wrap}
-    .menu a{color:var(--text); opacity:.9; padding:8px 10px; border-radius:8px}
-    .menu a:hover{background-color:#0e1f31}
 
-    .wrap{max-width:1100px; margin:38px auto; padding:0 20px}
-    .lead{
-      background:linear-gradient(180deg, #0e2132 0%, #0b1d2d 100%);
-      border:1px solid var(--border); border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:26px;
-    }
-    .title{
-      font-size:clamp(1.6rem, 2.6vw + 1rem, 2.3rem);
-      line-height:1.2; margin:0 0 10px;
-    }
-    .subtitle{color:var(--muted); margin:0 0 14px}
-    .badge{
-      display:inline-flex; align-items:center; gap:8px;
-      background-color:#0f2a40; color:var(--muted);
-      border:1px solid var(--border); border-radius:999px;
-      padding:6px 12px; font-size:.88rem; margin-bottom:8px;
-    }
-
-    /* KPI banner (main focus: average family saved) */
-    .kpi-banner{
-      display:flex; align-items:center; justify-content:space-between; gap:14px; flex-wrap:wrap;
-      margin-top:14px;
-    }
-    .kpi{
-      background-color:#0f2c46; border:1px solid var(--border);
-      border-radius:12px; padding:12px 16px; font-weight:700;
-    }
-    .kpi .big{font-size:1.6rem; color:#b7e4c2}
-    .kpi small{display:block; font-weight:400; color:var(--muted)}
-
-    /* Slider row */
-    .slider-row{
-      display:flex; align-items:center; gap:14px; flex-wrap:wrap;
-      margin-top:12px;
-    }
-    .slider-row label{color:var(--muted)}
-    input[type="range"]{width:220px}
-    .household-val{font-weight:700; color:#b7e4c2}
-
-    .card{
-      background-color:var(--card);
-      border:1px solid var(--border);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:22px; margin:18px 0;
-    }
-    .card h3{margin-top:0; font-size:1.2rem}
-    .note{color:var(--muted)}
-
-    .grid{display:grid; gap:18px; grid-template-columns:1fr 1fr}
-    .grid .card{margin:0}
-    @media (max-width:900px){ .grid{grid-template-columns:1fr} }
-
-    .img-wrap{
-      display:flex; justify-content:center; align-items:center;
-      background-color:var(--bg); border:1px solid var(--border);
-      border-radius:12px; padding:12px; min-height:360px;
-    }
-    .img-wrap canvas{max-width:100%; height:auto; border-radius:8px}
-
-    .refs{color:var(--muted); font-size:.95rem}
-    .refs a{color:var(--accent)}
-
-    /* Simple table for household example */
-    table{
-      width:100%; border-collapse:collapse; margin-top:10px; color:var(--text);
-    }
-    th, td{ border:1px solid var(--border); padding:10px; text-align:left; }
-    th{ background-color:#0f2a40; color:var(--text) }
-    td{ background-color:#0b2033; }
-
-    footer{
-      border-top:1px solid var(--border);
-      color:var(--muted);
-      padding:24px 20px; text-align:center;
-      background-color:#0a1a29; margin-top:30px;
-    }
-    :focus-visible{outline:2px solid var(--accent); outline-offset:2px}
-  </style>
-
-  <!-- ✅ Correct Chart.js script tag -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
+
 <body>
   <!-- Header / Nav -->
   <header role="banner" aria-label="Site header">
@@ -157,13 +36,14 @@
   <main class="wrap">
     <article class="lead">
       <div class="badge">California Analysis</div>
-      <h1 class="title">Projected Savings for California under CCHS‑Style Reforms</h1>
+      <h1 class="title">Projected Savings for California under CCHS-Style Reforms</h1>
 
       <!-- MAIN FOCUS: Average family saved -->
       <div class="kpi-banner">
         <div class="kpi">
           <div id="familySaved" class="big">~$3,000 saved / year</div>
-          <small>Estimated savings per California family (directional). Based on statewide savings and selected household size.</small>
+          <small>Estimated savings per California family (directional). Based on statewide savings and selected
+            household size.</small>
         </div>
         <div class="kpi">
           <div class="big">$409B → $368B</div>
@@ -180,12 +60,14 @@
       </div>
 
       <p class="subtitle">
-        California’s Office of Health Care Affordability (OHCA) reports Total Health Care Expenditures (THCE) of ~<strong>$409B</strong> in 2023 (up 8.2% from 2022). A conservative <strong>10%</strong> net savings from reduced waste and better pricing yields meaningful relief statewide and at the family level.
+        California's Office of Health Care Affordability (OHCA) reports Total Health Care Expenditures (THCE) of
+        ~<strong>$409B</strong> in 2023 (up 8.2% from 2022). A conservative <strong>10%</strong> net savings from
+        reduced waste and better pricing yields meaningful relief statewide and at the family level.
       </p>
     </article>
 
     <!-- Charts row -->
-    <section class="grid" aria-label="Projected savings visuals for California">
+    <section class="grid2" aria-label="Projected savings visuals for California">
       <!-- Card A: Savings breakdown -->
       <article class="card" aria-label="Projected savings breakdown">
         <h3>Projected Savings Breakdown for California (Illustrative)</h3>
@@ -193,7 +75,8 @@
           <canvas id="savingsChart" aria-label="Projected savings breakdown chart" role="img"></canvas>
         </div>
         <p class="note" style="margin-top:10px">
-          Administrative simplification (40%), drug price negotiation (25%), care delivery &amp; coordination (25%), fraud/abuse controls (10%).
+          Administrative simplification (40%), drug price negotiation (25%), care delivery &amp; coordination (25%),
+          fraud/abuse controls (10%).
         </p>
       </article>
 
@@ -204,25 +87,28 @@
           <canvas id="spendingChart" aria-label="Projected net savings bar chart for California" role="img"></canvas>
         </div>
         <p class="note" style="margin-top:10px">
-          Uses OHCA’s 2023 total (~$409B) and applies a conservative <em>10%</em> net savings assumption to show directional impact.
+          Uses OHCA's 2023 total (~$409B) and applies a conservative <em>10%</em> net savings assumption to show
+          directional impact.
         </p>
       </article>
     </section>
 
-  
+
 
     <!-- Household example (California anchors) -->
     <section class="card" aria-label="Household example">
       <h3>Average Family Saved — California Example</h3>
       <p class="note">
-        We compute per‑capita savings from statewide totals, then multiply by your household size (above). For employer‑sponsored families, replacing worker premiums (and typical OOP) with a payroll contribution often yields **~$1,500–$3,500** savings per year (illustrative).
+        We compute per-capita savings from statewide totals, then multiply by your household size (above). For
+        employer-sponsored families, replacing worker premiums (and typical OOP) with a payroll contribution often
+        yields **~$1,500–$3,500** savings per year (illustrative).
       </p>
       <table aria-label="Household comparison">
         <thead>
           <tr>
             <th>Metric (family coverage)</th>
             <th>Before</th>
-            <th>After (Payroll‑based financing)</th>
+            <th>After (Payroll-based financing)</th>
           </tr>
         </thead>
         <tbody>
@@ -249,7 +135,9 @@
         </tbody>
       </table>
       <p class="note" style="margin-top:10px">
-        Replace the payroll figure with the Board’s actuarial rate. For statewide context, CA has **~13.43M households**; a 10% net savings on **$409B** equals **~$41B**, or **~$3,000 per household per year** (directional).
+        Replace the payroll figure with the Board's actuarial rate. For statewide context, CA has **~13.43M
+        households**; a 10% net savings on **$409B** equals **~$41B**, or **~$3,000 per household per year**
+        (directional).
       </p>
     </section>
 
@@ -257,14 +145,20 @@
     <section class="card refs" aria-label="References">
       <h3>References (California)</h3>
       <ul>
-        <li>Office of Health Care Affordability (OHCA) — Baseline Report: Health Care Spending Trends in California, 2022–2023 (statewide THCE and 2023 growth). [1](https://jamanetwork-com.libproxy.catholic.ac.kr/journals/jama/fullarticle/2752663)</li>
-        <li>U.S. Census Bureau — California QuickFacts: households and population used for per‑capita scaling. [2](https://calbudgetcenter.org/resources/qa-whats-behind-californias-rising-medi-cal-spending/)</li>
-        <li>KFF — 2024 Employer Health Benefits Survey: family premium and worker share benchmarks. healthcare-changed-time/)</li>
-        <li>JAMA — Shrank et al. (2019): waste and achievable savings domains. [4](blob:https://m365.cloud.microsoft/5af81d20-7395-4909-a861-8acd45996bc3)</li>
-        <li>JAMA / RAND — Berwick & Hackbarth (2012): “cut waste, not care” framework. [5](blob:https://m365.cloud.microsoft/b56166ed-4f1b-4000-9e50-6f644d353ac9)</li>
+        <li>Office of Health Care Affordability (OHCA) — Baseline Report: Health Care Spending Trends in California,
+          2022–2023 (statewide THCE and 2023 growth).
+          [1](https://jamanetwork-com.libproxy.catholic.ac.kr/journals/jama/fullarticle/2752663)</li>
+        <li>U.S. Census Bureau — California QuickFacts: households and population used for per-capita scaling.
+          [2](https://calbudgetcenter.org/resources/qa-whats-behind-californias-rising-medi-cal-spending/)</li>
+        <li>KFF — 2024 Employer Health Benefits Survey: family premium and worker share benchmarks.
+          healthcare-changed-time/)</li>
+        <li>JAMA — Shrank et al. (2019): waste and achievable savings domains.
+          [4](blob:https://m365.cloud.microsoft/5af81d20-7395-4909-a861-8acd45996bc3)</li>
+        <li>JAMA / RAND — Berwick & Hackbarth (2012): “cut waste, not care” framework.
+          [5](blob:https://m365.cloud.microsoft/b56166ed-4f1b-4000-9e50-6f644d353ac9)</li>
       </ul>
       <p class="note">
-        Figures are directional and will be updated with California‑specific actuarial modeling by the CCHS Board.
+        Figures are directional and will be updated with California-specific actuarial modeling by the CCHS Board.
       </p>
     </section>
   </main>
@@ -273,7 +167,8 @@
   <footer role="contentinfo">
     <p>
       This is an informational site for public review. Explore the
-      <a href="index.html">summary</a>, the <a href="fullproposal.html">full proposal</a>, and the <a href="infographic.html">infographic</a>.
+      <a href="index.html">summary</a>, the <a href="fullproposal.html">full proposal</a>, and the <a
+        href="infographic.html">infographic</a>.
     </p>
   </footer>
 
@@ -281,16 +176,16 @@
   <script>
     // Configurable anchors (California)
     const CA_THCE_2023_BILLIONS = 409;     // OHCA baseline
-    const NET_SAVINGS_PCT       = 10;      // conservative illustration
-    const CA_POPULATION         = 39_431_263; // QuickFacts 2024 estimate
-    const PER_CAPITA_SAVINGS    = (CA_THCE_2023_BILLIONS * 1e9 * (NET_SAVINGS_PCT/100)) / CA_POPULATION; // dollars/person
+    const NET_SAVINGS_PCT = 10;      // conservative illustration
+    const CA_POPULATION = 39_431_263; // QuickFacts 2024 estimate
+    const PER_CAPITA_SAVINGS = (CA_THCE_2023_BILLIONS * 1e9 * (NET_SAVINGS_PCT / 100)) / CA_POPULATION; // dollars/person
 
     // Household size slider → headline savings
     const hhSize = document.getElementById('hhSize');
-    const hhVal  = document.getElementById('hhVal');
+    const hhVal = document.getElementById('hhVal');
     const familySavedEl = document.getElementById('familySaved');
 
-    function updateFamilySaved(){
+    function updateFamilySaved() {
       const n = parseInt(hhSize.value, 10);
       hhVal.textContent = n;
       const saved = PER_CAPITA_SAVINGS * n;
@@ -301,13 +196,13 @@
 
     // Theme colors from CSS variables
     const css = getComputedStyle(document.documentElement);
-    const BG      = css.getPropertyValue('--bg').trim()       || '#0b1b2b';
-    const TEXT    = css.getPropertyValue('--text').trim()     || '#e9f1f7';
-    const PRIMARY = css.getPropertyValue('--primary').trim()  || '#2bb673';
-    const ACCENT  = css.getPropertyValue('--accent').trim()   || '#3aa0ff';
+    const BG = css.getPropertyValue('--bg').trim() || '#0b1b2b';
+    const TEXT = css.getPropertyValue('--text').trim() || '#e9f1f7';
+    const PRIMARY = css.getPropertyValue('--primary').trim() || '#2bb673';
+    const ACCENT = css.getPropertyValue('--accent').trim() || '#3aa0ff';
 
     // ---- Chart A: Savings breakdown (donut, CA context) ----
-    (function(){
+    (function () {
       const labels = [
         'Administrative simplification',
         'Drug price negotiation',
@@ -340,9 +235,9 @@
     })();
 
     // ---- Chart B: California spend before vs after ----
-    (function(){
+    (function () {
       const baseline = CA_THCE_2023_BILLIONS;
-      const after    = baseline * (1 - NET_SAVINGS_PCT/100);
+      const after = baseline * (1 - NET_SAVINGS_PCT / 100);
 
       const labels = ['Current (CA 2023 THCE)', 'Projected with reforms'];
       const values = [baseline, after];
@@ -376,10 +271,10 @@
     })();
 
     // ---- Premiums comparison chart (stacked) ----
-    (function(){
+    (function () {
       // KFF 2024 anchors for family coverage
-      const worker  = 6296;              // worker share
-      const total   = 25572;             // total premium
+      const worker = 6296;              // worker share
+      const total = 25572;             // total premium
       const employer = total - worker;   // employer share
 
       const ctx = document.getElementById('premiumChart');
@@ -413,7 +308,7 @@
               mode: 'index',
               callbacks: {
                 footer: (items) => {
-                  const sum = items.reduce((s,i)=>s + i.raw, 0);
+                  const sum = items.reduce((s, i) => s + i.raw, 0);
                   return `Total premium: $${sum.toLocaleString()}`;
                 }
               }
@@ -424,4 +319,5 @@
     })();
   </script>
 </body>
+
 </html>

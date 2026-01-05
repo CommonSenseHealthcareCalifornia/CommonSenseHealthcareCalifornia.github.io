@@ -1,0 +1,340 @@
+/* Shared site theme */
+:root {
+    --bg: #f7f9fc;
+    --bg-alt: #ffffff;
+    --primary: #2bb673;
+    --accent: #2573d8;
+    --text: #1b2a3a;
+    --muted: #5d6b7a;
+    --card: #ffffff;
+    --border: #d6e0ea;
+    --shadow: 0 10px 20px rgba(17, 24, 39, 0.08);
+    --radius: 14px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #0b1b2b;
+        --bg-alt: #0f2438;
+        --primary: #2bb673;
+        --accent: #3aa0ff;
+        --text: #e9f1f7;
+        --muted: #b9c7d3;
+        --card: #102536;
+        --border: #1e3a52;
+        --shadow: 0 10px 20px rgba(3, 12, 20, .25);
+        --radius: 14px;
+    }
+}
+
+
+:root {
+    --bg: #f7f9fc;
+    --bg-alt: #ffffff;
+    --primary: #2bb673;
+    --accent: #2573d8;
+    --text: #1b2a3a;
+    --muted: #5d6b7a;
+    --card: #ffffff;
+    --border: #d6e0ea;
+    --shadow: 0 10px 20px rgba(17, 24, 39, 0.08);
+    --radius: 14px;
+}
+
+
+/* Reset & base */
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: 100%
+}
+
+body {
+    margin: 0;
+    color: var(--text);
+    background:
+        linear-gradient(180deg, var(--bg) 0%, #eef3f9 100%);
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+    line-height: 1.55;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none
+}
+
+a:hover {
+    text-decoration: underline
+}
+
+/* Header / Nav */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: saturate(120%) blur(8px);
+    background-color: rgba(255, 255, 255, 0.85);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.brand .logo {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--accent), var(--primary));
+    box-shadow: var(--shadow);
+}
+
+.menu {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap
+}
+
+.menu a {
+    color: var(--text);
+    opacity: .9;
+    padding: 8px 10px;
+    border-radius: 8px;
+}
+
+.menu a:hover {
+    background-color: #f1f5fb
+}
+
+.lead {
+    background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px;
+}
+
+/* Hero */
+.hero {
+    max-width: 1100px;
+    margin: 40px auto 20px;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 24px;
+}
+
+.hero-card {
+    background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 28px;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #eef5ff;
+    color: #3a4b5c;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-size: .88rem;
+    margin-bottom: 14px;
+}
+
+.title {
+    font-size: clamp(1.6rem, 2.8vw + 1rem, 2.4rem);
+    line-height: 1.2;
+    margin: 4px 0 12px;
+    letter-spacing: .2px;
+}
+
+.subtitle {
+    color: var(--muted);
+    font-size: 1.02rem;
+    margin: 0 0 18px
+}
+
+.cta-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 8px
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    font-weight: 600;
+    border: 1px solid var(--border);
+    background-color: #f3f7fb;
+    color: var(--text);
+}
+
+.btn.primary {
+    background: linear-gradient(180deg, var(--primary) 0%, #53be8a 100%);
+    color: #062517;
+    border: none;
+}
+
+.btn.transparent {
+    background-color: transparent
+}
+
+/* Cards grid */
+.grid {
+    max-width: 1100px;
+    margin: 10px auto 50px;
+    padding: 0 20px;
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.card {
+    background-color: var(--card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 22px;
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 1.15rem;
+    color: #1f8a56;
+}
+
+.card p {
+    color: var(--muted)
+}
+
+.card .more {
+    margin-top: 12px;
+    display: inline-flex;
+    gap: 8px;
+    align-items: center
+}
+.card h2 {
+    margin-top: 0;
+    font-size: 1.2rem;
+    color: #1f8a56; /* Accessible green heading on light */
+  }
+
+/* Highlight panel */
+.panel {
+    max-width: 1100px;
+    margin: 0 auto 50px;
+    padding: 20px;
+}
+
+.highlight {
+    border: 1px dashed #b9cbe0;
+    border-radius: var(--radius);
+    background: linear-gradient(180deg, #ffffff 0%, #f5f9ff 100%);
+    padding: 22px;
+}
+
+.kpi {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.kpi-item {
+    background-color: #f2f7fc;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 12px 16px;
+}
+
+.kpi-item strong {
+    color: #1f8a56
+}
+
+.wrap {
+    max-width: 1100px;
+    margin: 38px auto;
+    padding: 0 20px
+}
+
+/* Footer */
+footer {
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    padding: 24px 20px;
+    text-align: center;
+    background-color: #f3f6fb;
+}
+
+/* Responsive */
+@media (max-width: 1100px) {
+    .hero {
+        grid-template-columns: 1fr
+    }
+
+    .grid {
+        grid-template-columns: 1fr 1fr
+    }
+}
+
+@media (max-width: 1100px) {
+    .menu {
+        display: none
+    }
+
+    .grid {
+        grid-template-columns: 1fr
+    }
+}
+
+.grid2 {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: 1fr 1fr
+}
+
+.grid2.card {
+    margin: 0
+}
+
+@media (max-width:900px) {
+    .grid2 {
+        grid-template-columns: 1fr
+    }
+}
+
+/* Accessibility helpers */
+.sr-only {
+    position: absolute;
+    left: -9999px
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px
+}
