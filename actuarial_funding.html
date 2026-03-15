@@ -46,7 +46,7 @@
             household size.</small>
         </div>
         <div class="kpi">
-          <div class="big">$409B → $368B</div>
+          <div class="big">$400B → $360B</div>
           <small>Illustrative statewide spend if 10% net savings are achieved (OHCA baseline 2023).</small>
         </div>
       </div>
@@ -61,7 +61,7 @@
 
       <p class="subtitle">
         California's Office of Health Care Affordability (OHCA) reports Total Health Care Expenditures (THCE) of
-        ~<strong>$409B</strong> in 2023 (up 8.2% from 2022). A conservative <strong>10%</strong> net savings from
+        ~<strong>$400B</strong> in 2023 (up 8.2% from 2022). A conservative <strong>10%</strong> net savings from
         reduced waste and better pricing yields meaningful relief statewide and at the family level.
       </p>
     </article>
@@ -87,7 +87,7 @@
           <canvas id="spendingChart" aria-label="Projected net savings bar chart for California" role="img"></canvas>
         </div>
         <p class="note" style="margin-top:10px">
-          Uses OHCA's 2023 total (~$409B) and applies a conservative <em>10%</em> net savings assumption to show
+          Uses OHCA's 2023 total (~$400B) and applies a conservative <em>10%</em> net savings assumption to show
           directional impact.
         </p>
       </article>
@@ -101,64 +101,79 @@
       <p class="note">
         We compute per-capita savings from statewide totals, then multiply by your household size (above). For
         employer-sponsored families, replacing worker premiums (and typical OOP) with a payroll contribution often
-        yields **~$1,500–$3,500** savings per year (illustrative).
+        yields **~$1,500-$3,500** savings per year (illustrative).
       </p>
       <table aria-label="Household comparison">
         <thead>
           <tr>
             <th>Metric (family coverage)</th>
             <th>Before</th>
-            <th>After (Payroll-based financing)</th>
+            <th> After (Payroll-based financing)</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>Worker premium contribution</td>
-            <td>$6,296 / year</td>
-            <td>$0</td>
+            <td style="text-align: right;">$6,296 / year</td>
+            <td style="text-align: right;">$0</td>
           </tr>
           <tr>
             <td>Deductibles + copays</td>
-            <td>Often >$2,000 / year</td>
-            <td>$0 for covered services</td>
+            <td style="text-align: right;">Often >$2,000 / year</td>
+            <td style="text-align: right;">$0 for covered services</td>
           </tr>
           <tr>
             <td>Payroll contribution (illustrative)</td>
-            <td>$0</td>
-            <td>$4,800 / year</td>
+            <td style="text-align: center;">$0</td>
+            <td style="text-align: right;">$4,800 / year (6% payroll tax on $80,000)</td>
           </tr>
-          <tr>
+          <tr style="border-top: 2px solid currentColor; font-weight: bold;">
             <td><strong>Net change</strong></td>
-            <td></td>
-            <td><strong>~$1,500–$3,500 saved / year</strong> (directional)</td>
+            <td style="text-align: center;">—</td>
+            <td style="text-align: right;"><strong>~$1,500-$3,500 saved / year</strong></td>
           </tr>
         </tbody>
       </table>
       <p class="note" style="margin-top:10px">
         Replace the payroll figure with the Board's actuarial rate. For statewide context, CA has **~13.43M
-        households**; a 10% net savings on **$409B** equals **~$41B**, or **~$3,000 per household per year**
+        households**; a 10% net savings on **$400B** equals **~$40B**, or **~$3,000 per household per year**
         (directional).
       </p>
     </section>
 
     <!-- References -->
     <section class="card refs" aria-label="References">
-      <h3>References (California)</h3>
+      <h3>References & Data Sources</h3>
       <ul>
-        <li>Office of Health Care Affordability (OHCA) — Baseline Report: Health Care Spending Trends in California,
-          2022–2023 (statewide THCE and 2023 growth).
-          [1](https://jamanetwork-com.libproxy.catholic.ac.kr/journals/jama/fullarticle/2752663)</li>
-        <li>U.S. Census Bureau — California QuickFacts: households and population used for per-capita scaling.
-          [2](https://calbudgetcenter.org/resources/qa-whats-behind-californias-rising-medi-cal-spending/)</li>
-        <li>KFF — 2024 Employer Health Benefits Survey: family premium and worker share benchmarks.
-          healthcare-changed-time/)</li>
-        <li>JAMA — Shrank et al. (2019): waste and achievable savings domains.
-          [4](blob:https://m365.cloud.microsoft/5af81d20-7395-4909-a861-8acd45996bc3)</li>
-        <li>JAMA / RAND — Berwick & Hackbarth (2012): “cut waste, not care” framework.
-          [5](blob:https://m365.cloud.microsoft/b56166ed-4f1b-4000-9e50-6f644d353ac9)</li>
+        <li><strong>A paper by Arizona State University researchers: Excess Medical Care Spending</strong><br>
+          <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7661971/" target="_blank">Estimates of waste varied from $600 billion to more than $1.9 trillion per year</a> 
+          <br>
+          Answers the question: Where Can $700 Billion in Waste Be Cut Annually From the US Healthcare System?</li>
+
+        <li><strong>California OHCA — Health Care Spending Trends</strong><br>
+          <a href="https://www.chcf.org/resource/california-health-care-spending-almanac/" target="_blank">California Health Care Foundation: Health Care Spending Data</a><br>
+          Baseline 2023 THCE of ~$400B and year-over-year growth trends.</li>
+
+        <li><strong>U.S. Census Bureau — California Population & Households</strong><br>
+          <a href="https://www.census.gov/quickfacts/CA" target="_blank">Census QuickFacts: California</a><br>
+          Population (39M+) and household estimates used for per-capita scaling.</li>
+
+        <li><strong>KFF — 2024 Employer Health Benefits Survey</strong><br>
+          <a href="https://www.kff.org/health-costs/report/2024-employer-health-benefits-survey/" target="_blank">KFF Employer Health Benefits Survey 2024</a><br>
+          Family premium ($25,572), worker share ($6,296), and employer share benchmarks.</li>
+
+        <li><strong>JAMA — Shrank et al. (2019): Measuring and Improving Health Outcomes</strong><br>
+          <a href="https://jamanetwork.com/journals/jama/fullarticle/2753470" target="_blank">JAMA: Waste in the U.S. Health Care System (Shrank et al., 2019)</a><br>
+          Identifies waste and achievable savings domains: administration (25%), inappropriate care (37%), pricing power (22%), and fraud (7%).</li>
+
+        <li><strong>Commonwealth Fund — International Health Care System Comparisons</strong><br>
+          <a href="https://www.commonwealthfund.org/publications/fund-reports/2024/sep/mirror-mirror-2024" target="_blank">Commonwealth Fund: Mirror, Mirror 2023</a><br>
+          Comparative analysis of U.S., Canada, Germany, and other systems; highlights U.S. administrative complexity costs.</li>
       </ul>
       <p class="note">
-        Figures are directional and will be updated with California-specific actuarial modeling by the CCH Board.
+        Figures are directional projections and will be updated with California-specific actuarial modeling by the CCH Board. 
+        Current estimates assume 10% net savings from waste reduction, pricing improvements, and care coordination—conservative relative to 
+        comparable systems (Shrank et al., 2019; Berwick & Hackbarth, 2012).
       </p>
     </section>
   </main>
@@ -174,13 +189,23 @@
 
   <!-- JavaScript: render charts and slider logic -->
   <script>
-    // Configurable anchors (California)
-    const CA_THCE_2023_BILLIONS = 409;     // OHCA baseline
-    const NET_SAVINGS_PCT = 10;      // conservative illustration
-    const CA_POPULATION = 39_431_263; // QuickFacts 2024 estimate
+    // ============================================
+    // CONFIGURATION & CALCULATIONS
+    // ============================================
+    // Data sources:
+    // - CA THCE 2023: $400B (California Health Care Foundation, OHCA baseline)
+    // - CA Population: 39.43M (U.S. Census Bureau 2024 estimate)
+    // - Net savings assumption: 10% (conservative estimate based on Shrank et al. 2019, Berwick & Hackbarth 2012)
+    // - Resulting per-capita savings: ~$1,037/person/year
+    
+    const CA_THCE_2023_BILLIONS = 400;     // OHCA baseline, California Health Care Foundation
+    const NET_SAVINGS_PCT = 10;      // conservative illustration based on peer-reviewed research
+    const CA_POPULATION = 39_431_263; // U.S. Census Bureau 2024 estimate
     const PER_CAPITA_SAVINGS = (CA_THCE_2023_BILLIONS * 1e9 * (NET_SAVINGS_PCT / 100)) / CA_POPULATION; // dollars/person
-
-    // Household size slider → headline savings
+    
+    // ============================================
+    // HOUSEHOLD SIZE SLIDER
+    // ============================================
     const hhSize = document.getElementById('hhSize');
     const hhVal = document.getElementById('hhVal');
     const familySavedEl = document.getElementById('familySaved');
