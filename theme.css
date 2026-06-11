@@ -257,12 +257,39 @@ header {
     padding: 22px;
 }
 
-.kpi {
+.kpi-banner {
     display: flex;
-    align-items: center;
-    gap: 16px;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    margin-top: 20px;
     flex-wrap: wrap;
-    margin-top: 10px;
+}
+
+.slider-row {
+    flex: 1 1 360px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 240px;
+}
+
+.slider-row label,
+.slider-row .household-val,
+.slider-row .note {
+    display: block;
+}
+
+.kpi-banner .kpi {
+    flex: 0 0 420px;
+    max-width: 420px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 18px;
+    border-radius: 16px;
+    background: #f8fcf7;
+    border: 1px solid var(--border);
 }
 
 .kpi-item {
@@ -274,6 +301,46 @@ header {
 
 .kpi-item strong {
     color: #1f8a56
+}
+
+.card table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    margin-top: 16px;
+}
+
+.card table th,
+.card table td {
+    padding: 12px 10px;
+    vertical-align: middle;
+    border-bottom: 1px solid rgba(17, 24, 39, 0.08);
+    overflow-wrap: anywhere;
+}
+
+.card table thead th {
+    font-weight: 700;
+}
+
+.card table th:nth-child(1),
+.card table td:nth-child(1) {
+    text-align: left;
+}
+
+.card table th:nth-child(2),
+.card table td:nth-child(2) {
+
+    text-align: right;
+}
+
+.card table th:nth-child(3),
+.card table td:nth-child(3) {
+
+    text-align: right;
+}
+
+.card table tbody tr:last-child td {
+    border-bottom: none;
 }
 
 .wrap {

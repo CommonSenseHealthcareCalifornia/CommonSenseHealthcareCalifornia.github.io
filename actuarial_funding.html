@@ -5,17 +5,13 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="theme.css">
-  <title>CCH — California Costs & Projected Savings (JS Charts)</title>
+  <title>CCH — California Costs & Projected Savings</title>
   <meta name="description"
-    content="California-focused analysis with household slider and premium comparison charts rendered with JavaScript (Chart.js).">
-
-
-
+    content="California-focused analysis of CCH funding sources, projected savings, and household impact.">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 </head>
 
 <body>
-  <!-- Header / Nav -->
   <header role="banner" aria-label="Site header">
     <nav class="nav" aria-label="Primary">
       <div class="brand" aria-label="Brand">
@@ -32,177 +28,347 @@
     </nav>
   </header>
 
-  <!-- Lead -->
   <main class="wrap">
     <article class="lead">
-      <div class="badge">California Analysis</div>
-      <h1 class="title">Projected Savings for California under CCH-Style Reforms</h1>
+      <h1 class="title">CCH Funding Sources & Projected Savings</h1>
+      <br>
 
-      <!-- MAIN FOCUS: Average family saved -->
       <div class="kpi-banner">
-        <div class="kpi">
-          <div id="familySaved" class="big">~$3,000 saved / year</div>
-          <small>Estimated savings per California family (directional). Based on statewide savings and selected
-            household size.</small>
+        <div class="slider-row" aria-label="Household size selector">
+          <label for="hhSize">Household size:</label>
+          <input id="hhSize" type="range" min="1" max="7" step="1" value="3" />
+          <span class="household-val"><span id="hhVal">3</span> people</span>
+          <span class="note"></span>
         </div>
         <div class="kpi">
-          <div class="big">$400B → $360B</div>
-          <small>Illustrative statewide spend if 10% net savings are achieved (OHCA baseline 2023).</small>
+          <bold>
+            <div id="familySaved" class="big">$3,000 saved / year</div>
+          </bold>
         </div>
+        Estimated savings are computed per person and multiplied by household size. Net savings per household
+        (directional). Based on statewide 10% net savings and selected household size.
       </div>
 
-      <!-- Household size slider -->
-      <div class="slider-row" aria-label="Household size selector">
-        <label for="hhSize">Household size:</label>
-        <input id="hhSize" type="range" min="1" max="7" step="1" value="3" />
-        <span class="household-val"><span id="hhVal">3</span> people</span>
-        <span class="note">Savings are computed per person and multiplied by household size.</span>
-      </div>
-
-      <p class="subtitle">
-        California's Office of Health Care Affordability (OHCA) reports Total Health Care Expenditures (THCE) of
-        ~<strong>$400B</strong> in 2023 (up 8.2% from 2022). A conservative <strong>10%</strong> net savings from
-        reduced waste and better pricing yields meaningful relief statewide and at the family level.
-      </p>
     </article>
 
-    <!-- Charts row -->
-    <section class="grid2" aria-label="Projected savings visuals for California">
-      <!-- Card A: Savings breakdown -->
-      <article class="card" aria-label="Projected savings breakdown">
-        <h3>Projected Savings Breakdown for California (Illustrative)</h3>
-        <div class="img-wrap">
-          <canvas id="savingsChart" aria-label="Projected savings breakdown chart" role="img"></canvas>
-        </div>
-        <p class="note" style="margin-top:10px">
-          Administrative simplification (40%), drug price negotiation (25%), care delivery &amp; coordination (25%),
-          fraud/abuse controls (10%).
-        </p>
-      </article>
-
-      <!-- Card B: CA spend before vs after -->
-      <article class="card" aria-label="California spending before vs after example">
-        <h3>California Spend Before vs. After Reforms (Example)</h3>
-        <div class="img-wrap">
-          <canvas id="spendingChart" aria-label="Projected net savings bar chart for California" role="img"></canvas>
-        </div>
-        <p class="note" style="margin-top:10px">
-          Uses OHCA's 2023 total (~$400B) and applies a conservative <em>10%</em> net savings assumption to show
-          directional impact.
-        </p>
-      </article>
-    </section>
-
-
-
-    <!-- Household example (California anchors) -->
-    <section class="card" aria-label="Household example">
-      <h3>Average Family Saved — California Example</h3>
+    <!-- Household example -->
+    <section class="card" aria-label="Household savings example">
+      <h3>Average Family with CCH Savings</h3>
       <p class="note">
-        We compute per-capita savings from statewide totals, then multiply by your household size (above). For
-        employer-sponsored families, replacing worker premiums (and typical OOP) with a payroll contribution often
-        yields **~$1,500-$3,500** savings per year (illustrative).
+        Annual per-capita savings computed from statewide 10% net savings on ~$500B total CA healthcare spend,
+        divided across ~39.4M residents, then multiplied by household size. Adjust the slider above to see your
+        estimate.
       </p>
-      <table aria-label="Household comparison">
+      <table aria-label="Household comparison before and after CCH">
         <thead>
           <tr>
-            <th>Metric (family coverage)</th>
-            <th>Before</th>
-            <th> After (Payroll-based financing)</th>
+            <th>Average Family ($80,000 salary)</th>
+            <th>With CCH</th>
+            <th>Now, Pre-CCH</th>
           </tr>
         </thead>
         <tbody>
           <tr>
             <td>Worker premium contribution</td>
-            <td style="text-align: right;">$6,296 / year</td>
-            <td style="text-align: right;">$0</td>
+            <td style="text-align:right;">$0</td>
+            <td style="text-align:right;">$6,296</td>
+
           </tr>
           <tr>
             <td>Deductibles + copays</td>
-            <td style="text-align: right;">Often >$2,000 / year</td>
-            <td style="text-align: right;">$0 for covered services</td>
+            <td style="text-align:right;">$0</td>
+            <td style="text-align:right;">$2,000</td>
+
           </tr>
           <tr>
-            <td>Payroll contribution (illustrative)</td>
-            <td style="text-align: center;">$0</td>
-            <td style="text-align: right;">$4,800 / year (6% payroll tax on $80,000)</td>
+            <td>CCH payroll contribution</td>
+            <td style="text-align:right;">$4,800</td>
+            <td style="text-align:right;">$0</td>
+
           </tr>
-          <tr style="border-top: 2px solid currentColor; font-weight: bold;">
+          <tr style="border-top: 2px solid currentColor; font-weight:bold;">
             <td><strong>Net change</strong></td>
-            <td style="text-align: center;">—</td>
-            <td style="text-align: right;"><strong>~$1,500-$3,500 saved / year</strong></td>
+            <td style="text-align:right;"><strong>$3,700 saved</strong></td>
+            <td style="text-align:right;">0</td>
+
           </tr>
         </tbody>
       </table>
-      <p class="note" style="margin-top:10px">
-        Replace the payroll figure with the Board's actuarial rate. For statewide context, CA has **~13.43M
-        households**; a 10% net savings on **$400B** equals **~$40B**, or **~$3,000 per household per year**
-        (directional).
+      <p class="note" style="margin-top:10px;">
+        CA has ~13.43M households. A 10% net savings on ~$500B equals <strong>~$50B statewide</strong>,
+        or roughly <strong>~$3,700 per household per year</strong> (directional). Actual savings vary by income,
+        household size, and current coverage type.
       </p>
     </section>
 
-    <!-- References -->
-    <section class="card refs" aria-label="References">
-      <h3>References & Data Sources</h3>
+    <!-- SECTION 4: Premium comparison -->
+    <section class="card" aria-label="Premium comparison before and after">
+      <h3>Family Health Insurance: Before vs. After CCH</h3>
+      <div class="img-wrap" style="height:280px;">
+        <canvas id="premiumChart" role="img"
+          aria-label="Stacked bar chart comparing current family premium costs versus CCH payroll contribution. Current total family premium is $25,572 split between employer and worker. Under CCH both go to zero, replaced by a payroll contribution.">Current
+          premium: $25,572 total ($19,276 employer, $6,296 worker). After CCH: $0 premium, replaced by payroll
+          contribution.</canvas>
+      </div>
+      <p class="note" style="margin-top:10px;">
+        KFF 2024 Employer Health Benefits Survey: average total family premium $25,572/year; worker share $6,296.
+        Under CCH, premiums and cost-sharing are eliminated entirely and replaced by the payroll tax.
+      </p>
+    </section>
+
+
+
+    <!-- SECTION 1: Total Revenue Sources -->
+    <section class="card" aria-label="CCH total revenue sources">
+      <h3>CCH Estimated Annual Revenue — All Sources</h3>
+      <div class="img-wrap" style="height:340px;">
+        <canvas id="revenueChart" role="img"
+          aria-label="Stacked bar chart comparing existing redirected public funds versus new CCH revenue sources totaling approximately $516 billion.">Revenue:
+          Medi-Cal federal $120B, Medi-Cal state GF $45B, Medi-Cal special funds $32B, Medicare CA share $134B, employer
+          payroll tax $79B, employee payroll tax $79B, stock levy $18B, windfall profits $8B, luxury real estate
+          $1.5B.</canvas>
+      </div>
+      <p class="note" style="margin-top:10px;">
+        Existing public funds (Medi-Cal + Medicare CA share) total ~$331B. New CCH revenue sources add ~$185.5B.
+        Combined: <strong>~$516B</strong>. Medi-Cal figures from the 2025–26 California Budget Act.
+        Medicare CA share estimated proportionally (~12% of $1.12T national Medicare spend for ~7M CA beneficiaries).
+      </p>
+
+      <table aria-label="Revenue breakdown by source" style="margin-top:1rem;">
+        <thead>
+          <tr>
+            <th>Source</th>
+            <th>Basis</th>
+            <th style="text-align:right;">Estimated annual revenue</th>
+            <th style="text-align:right;">Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="4" style="background:rgba(43,182,115,0.12); font-weight:bold; padding:6px 10px;">Existing
+              public funds redirected to CCH</td>
+          </tr>
+          <tr>
+            <td>Medi-Cal — federal funds (FMAP)</td>
+            <td>2025–26 CA Budget Act; ~61.8% federal match</td>
+            <td style="text-align:right;">~$120B</td>
+            <td style="text-align:right;">Redirected</td>
+          </tr>
+          <tr>
+            <td>Medi-Cal — state General Fund</td>
+            <td>2025–26 CA Budget Act GF appropriation</td>
+            <td style="text-align:right;">~$45B</td>
+            <td style="text-align:right;">Redirected</td>
+          </tr>
+          <tr>
+            <td>Medi-Cal — special &amp; other funds</td>
+            <td>MCO tax revenue, county funds, reimbursements</td>
+            <td style="text-align:right;">~$32B</td>
+            <td style="text-align:right;">Redirected</td>
+          </tr>
+          <tr>
+            <td>Medicare — California beneficiary share</td>
+            <td>~7M CA enrollees × ~12% of $1.12T national Medicare spend (requires federal CMS agreement)</td>
+            <td style="text-align:right;">~$134B</td>
+            <td style="text-align:right;">Federal</td>
+          </tr>
+          <tr style="font-weight:bold; border-top: 2px solid currentColor;">
+            <td colspan="2">Existing public subtotal</td>
+            <td style="text-align:right;">~$331B</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td colspan="4" style="background:rgba(58,160,255,0.12); font-weight:bold; padding:6px 10px;">New CCH
+              revenue sources</td>
+          </tr>
+          <tr>
+            <td>Employer payroll tax (6%)</td>
+            <td>~$1.32T taxable CA wage base (above 250% FPL)</td>
+            <td style="text-align:right;">~$79B</td>
+            <td style="text-align:right;">New</td>
+          </tr>
+          <tr>
+            <td>Employee payroll tax (6%)</td>
+            <td>Same taxable base as employer</td>
+            <td style="text-align:right;">~$79B</td>
+            <td style="text-align:right;">New</td>
+          </tr>
+          <tr>
+            <td>Stock-based compensation levy (12% combined)</td>
+            <td>~$75B est. CA annual RSU/equity grants; 6% employer + 6% employee at issuance</td>
+            <td style="text-align:right;">~$18B</td>
+            <td style="text-align:right;">New</td>
+          </tr>
+          <tr>
+            <td>Corporate windfall profit assessment (10%)</td>
+            <td>Businesses &gt;$10M revenue with profit margins above 10%</td>
+            <td style="text-align:right;">~$8B</td>
+            <td style="text-align:right;">New</td>
+          </tr>
+          <tr>
+            <td>Luxury real estate transfer fee (1–2%)</td>
+            <td>CA property sales over $5M; tiered 1%–2% rate</td>
+            <td style="text-align:right;">~$1.5B</td>
+            <td style="text-align:right;">New</td>
+          </tr>
+          <tr style="font-weight:bold; border-top: 2px solid currentColor;">
+            <td colspan="2">New CCH revenue subtotal</td>
+            <td style="text-align:right;">~$185.5B</td>
+            <td></td>
+          </tr>
+          <tr style="font-weight:bold; border-top: 3px solid currentColor; font-size:1.05em;">
+            <td colspan="2">Grand total — all sources</td>
+            <td style="text-align:right;">~$516B</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SECTION 2: Savings charts side by side -->
+    <section class="grid2" aria-label="Projected savings visuals">
+      <article class="card" aria-label="Projected savings breakdown">
+        <h3>Projected Savings Breakdown (Illustrative)</h3>
+        <div class="img-wrap">
+          <canvas id="savingsChart" aria-label="Donut chart of projected savings breakdown" role="img"></canvas>
+        </div>
+        <p class="note" style="margin-top:10px;">
+          Administrative simplification (40%), drug price negotiation (25%), care delivery &amp; coordination (25%),
+          fraud/abuse controls (10%). Source: Shrank et al. (2019), JAMA.
+        </p>
+      </article>
+
+      <article class="card" aria-label="California spending before vs after">
+        <h3>California Spend Before vs. After Reforms</h3>
+        <div class="img-wrap">
+          <canvas id="spendingChart"
+            aria-label="Bar chart showing California healthcare spend before and after CCH reforms" role="img"></canvas>
+        </div>
+        <p class="note" style="margin-top:10px;">
+          Uses CMS/OHCA 2024–25 estimated CA total spend (~$500B) and applies a conservative <em>10%</em> net
+          savings assumption to show directional impact (~$50B statewide savings).
+        </p>
+      </article>
+    </section>
+
+    <!-- SECTION 3: New revenue sources chart -->
+    <section class="card" aria-label="New CCH revenue sources breakdown">
+      <h3>New CCH Revenue Sources Breakdown</h3>
+      <div class="img-wrap" style="height:300px;">
+        <canvas id="newRevenueChart" role="img"
+          aria-label="Horizontal bar chart of new CCH revenue: payroll taxes $158B, stock levy $18B, windfall profits $8B, luxury real estate $1.5B.">New
+          revenue: Payroll taxes $158B combined, stock levy $18B, windfall profits $8B, luxury real estate
+          $1.5B.</canvas>
+      </div>
+      <p class="note" style="margin-top:10px;">
+        The two 6% payroll taxes (employer + employee) on wages above 250% FPL are by far the largest new revenue
+        source,
+        drawing on California's ~$1.85T annual wage base (Federal Reserve / BEA 2025). The stock levy,
+        windfall assessment, and real estate fee are supplemental but significant.
+      </p>
+    </section>
+
+
+
+    <!-- SECTION 6: Key caveats -->
+    <section class="card" aria-label="Key caveats and notes">
+      <h3>Key Caveats &amp; Important Notes</h3>
       <ul>
-        <li><strong>A paper by Arizona State University researchers: Excess Medical Care Spending</strong><br>
-          <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7661971/" target="_blank">Estimates of waste varied from $600 billion to more than $1.9 trillion per year</a> 
-          <br>
-          Answers the question: Where Can $700 Billion in Waste Be Cut Annually From the US Healthcare System?</li>
+        <li><strong>Medicare requires a federal agreement.</strong> Redirecting ~$134B in Medicare funds to CCH requires
+          a formal waiver or agreement with the Centers for Medicare &amp; Medicaid Services (CMS). No state has
+          accomplished this at scale. This is the single largest legal and political challenge in the CCH proposal
+          and will require dedicated federal negotiation.</li>
+        <li><strong>Payroll base estimate.</strong> Total CA wages are ~$1.85T (BEA/Federal Reserve 2025). Approximately
+          29% of CA workers earn below 250% of the Federal Poverty Level (~$36,000/individual) and are excluded
+          from the taxable base, yielding ~$1.32T in taxable wages.</li>
+        <li><strong>Stock levy estimate is conservative.</strong> CA LAO data shows RSU/stock-based withholding grew
+          11.5% year-over-year in tech sectors in 2024. The ~$75B annual equity grant estimate may increase
+          significantly as AI-sector compensation grows.</li>
+        <li><strong>Windfall profits are broadly defined.</strong> The 10% profit-margin threshold applies to all
+          businesses with &gt;$10M revenue, including healthcare providers. This is intentional — the proposal
+          treats healthcare as a public good, not a profit center.</li>
+        <li><strong>Savings projections are directional.</strong> The 10% net savings figure is conservative relative
+          to peer-reviewed estimates (Shrank et al., 2019 estimated $760B–$935B in achievable national savings).
+          Actual CA savings will depend on implementation quality and actuarial modeling by the CCH Board.</li>
+        <li><strong>Uninsured population absorption.</strong> California has ~2.8M uninsured residents. CCH will need
+          to absorb this newly covered population, partially offsetting gross savings in the early years.</li>
+      </ul>
+    </section>
 
-        <li><strong>California OHCA — Health Care Spending Trends</strong><br>
-          <a href="https://www.chcf.org/resource/california-health-care-spending-almanac/" target="_blank">California Health Care Foundation: Health Care Spending Data</a><br>
-          Baseline 2023 THCE of ~$400B and year-over-year growth trends.</li>
-
-        <li><strong>U.S. Census Bureau — California Population & Households</strong><br>
-          <a href="https://www.census.gov/quickfacts/CA" target="_blank">Census QuickFacts: California</a><br>
-          Population (39M+) and household estimates used for per-capita scaling.</li>
-
+    <!-- SECTION 7: References -->
+    <section class="card refs" aria-label="References">
+      <h3>References &amp; Data Sources</h3>
+      <ul>
+        <li><strong>California Budget Act 2025–26 — Medi-Cal</strong><br>
+          <a href="https://sbud.senate.ca.gov/system/files/2025-11/background-forecasts-and-estimates-crafting-the-budget-for-california-health-programs-11-14-2025.pdf"
+            target="_blank">CA Senate Budget Committee: Medi-Cal Expenditure Authority 2025–26</a><br>
+          Total Medi-Cal: $202.7B ($45.6B GF, $120.7B federal, $36.4B special funds).
+        </li>
+        <li><strong>CMS — National Health Expenditure Data 2024</strong><br>
+          <a href="https://www.cms.gov/data-research/statistics-trends-and-reports/national-health-expenditure-data/nhe-fact-sheet"
+            target="_blank">CMS NHE Fact Sheet 2024</a><br>
+          National Medicare spending: $1.118T (2024). CA share ~12% based on ~7M of ~67M beneficiaries.
+        </li>
+        <li><strong>CA LAO — Medi-Cal Fiscal Outlook 2026–27</strong><br>
+          <a href="https://lao.ca.gov/Publications/Report/5092" target="_blank">LAO: Medi-Cal Fiscal Outlook</a><br>
+          GF support grows from $44.9B (2025–26) to $51.6B by 2029–30.
+        </li>
+        <li><strong>Federal Reserve / BEA — California Wages &amp; Salaries 2025</strong><br>
+          <a href="https://fred.stlouisfed.org/series/CAWTOT" target="_blank">FRED: Total Wages and Salaries in
+            California</a><br>
+          ~$1.85T total CA wages and salaries (seasonally adjusted annual rate, 2025).
+        </li>
+        <li><strong>CA LAO — Tech Stock Compensation &amp; Withholding 2025</strong><br>
+          <a href="https://lao.ca.gov/LAOEconTax/Article/Detail/843" target="_blank">LAO EconTax: Tech Company Stock Pay
+            &amp; Withholding Growth</a><br>
+          Tech-sector withholding grew 11.5% YoY in first 11 months of 2024 vs. 4.9% for other sectors.
+        </li>
         <li><strong>KFF — 2024 Employer Health Benefits Survey</strong><br>
-          <a href="https://www.kff.org/health-costs/report/2024-employer-health-benefits-survey/" target="_blank">KFF Employer Health Benefits Survey 2024</a><br>
-          Family premium ($25,572), worker share ($6,296), and employer share benchmarks.</li>
-
-        <li><strong>JAMA — Shrank et al. (2019): Measuring and Improving Health Outcomes</strong><br>
-          <a href="https://jamanetwork.com/journals/jama/fullarticle/2753470" target="_blank">JAMA: Waste in the U.S. Health Care System (Shrank et al., 2019)</a><br>
-          Identifies waste and achievable savings domains: administration (25%), inappropriate care (37%), pricing power (22%), and fraud (7%).</li>
-
-        <li><strong>Commonwealth Fund — International Health Care System Comparisons</strong><br>
-          <a href="https://www.commonwealthfund.org/publications/fund-reports/2024/sep/mirror-mirror-2024" target="_blank">Commonwealth Fund: Mirror, Mirror 2023</a><br>
-          Comparative analysis of U.S., Canada, Germany, and other systems; highlights U.S. administrative complexity costs.</li>
+          <a href="https://www.kff.org/health-costs/report/2024-employer-health-benefits-survey/" target="_blank">KFF
+            Employer Health Benefits Survey 2024</a><br>
+          Family premium $25,572/year; worker share $6,296; employer share $19,276.
+        </li>
+        <li><strong>JAMA — Shrank et al. (2019): Waste in the U.S. Health Care System</strong><br>
+          <a href="https://jamanetwork.com/journals/jama/fullarticle/2753470" target="_blank">JAMA: Waste in the U.S.
+            Health Care System</a><br>
+          Estimates $760B–$935B in achievable annual savings nationally across 6 waste domains.
+        </li>
+        <li><strong>Commonwealth Fund — Mirror, Mirror 2024</strong><br>
+          <a href="https://www.commonwealthfund.org/publications/fund-reports/2024/sep/mirror-mirror-2024"
+            target="_blank">Commonwealth Fund: Mirror, Mirror 2024</a><br>
+          Comparative international analysis; U.S. ranks last among high-income nations on equity and access.
+        </li>
+        <li><strong>California Medicare Enrollment — CMS 2025</strong><br>
+          <a href="https://www.aol.com/lifestyle/california-medicare-plans-2022-104800501.html" target="_blank">CMS:
+            California Medicare Enrollment 2025</a><br>
+          7,050,213 California residents enrolled in Medicare as of 2025 open enrollment.
+        </li>
       </ul>
       <p class="note">
-        Figures are directional projections and will be updated with California-specific actuarial modeling by the CCH Board. 
-        Current estimates assume 10% net savings from waste reduction, pricing improvements, and care coordination—conservative relative to 
-        comparable systems (Shrank et al., 2019; Berwick & Hackbarth, 2012).
+        All revenue and savings figures are directional projections for public education purposes.
+        Formal actuarial modeling will be commissioned by the CCH Board prior to full implementation,
+        consistent with Section 5 of the CCH Act. Estimates will be updated as new data becomes available.
       </p>
     </section>
   </main>
 
-  <!-- Footer -->
   <footer role="contentinfo">
     <p>
       This is an informational site for public review. Explore the
-      <a href="index.html">summary</a>, the <a href="fullproposal.html">full proposal</a>, and the <a
-        href="infographic.html">infographic</a>.
+      <a href="index.html">summary</a>, the <a href="fullproposal.html">full proposal</a>, and the
+      <a href="infographic.html">infographic</a>.
     </p>
   </footer>
 
-  <!-- JavaScript: render charts and slider logic -->
   <script>
     // ============================================
     // CONFIGURATION & CALCULATIONS
     // ============================================
-    // Data sources:
-    // - CA THCE 2023: $400B (California Health Care Foundation, OHCA baseline)
-    // - CA Population: 39.43M (U.S. Census Bureau 2024 estimate)
-    // - Net savings assumption: 10% (conservative estimate based on Shrank et al. 2019, Berwick & Hackbarth 2012)
-    // - Resulting per-capita savings: ~$1,037/person/year
-    
-    const CA_THCE_2023_BILLIONS = 400;     // OHCA baseline, California Health Care Foundation
-    const NET_SAVINGS_PCT = 10;      // conservative illustration based on peer-reviewed research
-    const CA_POPULATION = 39_431_263; // U.S. Census Bureau 2024 estimate
-    const PER_CAPITA_SAVINGS = (CA_THCE_2023_BILLIONS * 1e9 * (NET_SAVINGS_PCT / 100)) / CA_POPULATION; // dollars/person
-    
+    const CA_THCE_BILLIONS = 500;          // CMS/OHCA 2024-25 estimated total CA healthcare spend
+    const NET_SAVINGS_PCT = 10;            // conservative 10% net savings
+    const CA_POPULATION = 39_431_263;      // U.S. Census Bureau 2024
+    const PER_CAPITA_SAVINGS = (CA_THCE_BILLIONS * 1e9 * (NET_SAVINGS_PCT / 100)) / CA_POPULATION;
+
     // ============================================
     // HOUSEHOLD SIZE SLIDER
     // ============================================
@@ -214,35 +380,71 @@
       const n = parseInt(hhSize.value, 10);
       hhVal.textContent = n;
       const saved = PER_CAPITA_SAVINGS * n;
-      familySavedEl.textContent = `~$${Math.round(saved).toLocaleString()} saved / year`;
+      familySavedEl.textContent = '$' + Math.round(saved).toLocaleString() + ' saved / year';
     }
     hhSize.addEventListener('input', updateFamilySaved);
-    updateFamilySaved(); // initial
+    updateFamilySaved();
 
-    // Theme colors from CSS variables
     const css = getComputedStyle(document.documentElement);
     const BG = css.getPropertyValue('--bg').trim() || '#0b1b2b';
     const TEXT = css.getPropertyValue('--text').trim() || '#e9f1f7';
     const PRIMARY = css.getPropertyValue('--primary').trim() || '#2bb673';
     const ACCENT = css.getPropertyValue('--accent').trim() || '#3aa0ff';
 
-    // ---- Chart A: Savings breakdown (donut, CA context) ----
+    // ============================================
+    // CHART 1: Total revenue stacked bar
+    // ============================================
     (function () {
-      const labels = [
-        'Administrative simplification',
-        'Drug price negotiation',
-        'Care delivery & coordination',
-        'Fraud/abuse controls'
-      ];
-      const shares = [40, 25, 25, 10]; // illustrative
+      const ctx = document.getElementById('revenueChart');
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Existing public funds\n(Medi-Cal + Medicare)', 'New CCH\nrevenue'],
+          datasets: [
+            { label: 'Medi-Cal federal funds', data: [120, 0], backgroundColor: '#185FA5' },
+            { label: 'Medi-Cal state GF', data: [45, 0], backgroundColor: '#378ADD' },
+            { label: 'Medi-Cal special funds', data: [32, 0], backgroundColor: '#85B7EB' },
+            { label: 'Medicare (CA share)', data: [134, 0], backgroundColor: '#1D9E75' },
+            { label: 'Payroll taxes (employer + employee)', data: [0, 158], backgroundColor: '#7F77DD' },
+            { label: 'Stock levy + windfall + real estate', data: [0, 27.5], backgroundColor: '#D85A30' }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'right', labels: { color: TEXT, font: { size: 11 } } },
+            tooltip: { callbacks: { label: (c) => ' ' + c.dataset.label + ': $' + c.parsed.y.toFixed(1) + 'B' } }
+          },
+          scales: {
+            x: { stacked: true, ticks: { color: TEXT } },
+            y: {
+              stacked: true,
+              ticks: { color: TEXT, callback: (v) => '$' + v + 'B' },
+              grid: { color: 'rgba(255,255,255,.12)' },
+              title: { display: true, text: 'Billions (USD)', color: TEXT }
+            }
+          }
+        }
+      });
+    })();
 
+    // ============================================
+    // CHART 2: Savings breakdown donut
+    // ============================================
+    (function () {
       const ctx = document.getElementById('savingsChart');
       new Chart(ctx, {
         type: 'doughnut',
         data: {
-          labels,
+          labels: [
+            'Administrative simplification',
+            'Drug price negotiation',
+            'Care delivery & coordination',
+            'Fraud/abuse controls'
+          ],
           datasets: [{
-            data: shares,
+            data: [40, 25, 25, 10],
             backgroundColor: [PRIMARY, ACCENT, '#b085f5', '#ffb74d'],
             borderColor: BG,
             borderWidth: 2
@@ -253,28 +455,26 @@
           maintainAspectRatio: false,
           plugins: {
             legend: { position: 'right', labels: { color: TEXT } },
-            tooltip: { callbacks: { label: (c) => `${c.label}: ${c.formattedValue}%` } }
+            tooltip: { callbacks: { label: (c) => c.label + ': ' + c.formattedValue + '%' } }
           }
         }
       });
     })();
 
-    // ---- Chart B: California spend before vs after ----
+    // ============================================
+    // CHART 3: CA spend before vs after
+    // ============================================
     (function () {
-      const baseline = CA_THCE_2023_BILLIONS;
+      const baseline = CA_THCE_BILLIONS;
       const after = baseline * (1 - NET_SAVINGS_PCT / 100);
-
-      const labels = ['Current (CA 2023 THCE)', 'Projected with reforms'];
-      const values = [baseline, after];
-
       const ctx = document.getElementById('spendingChart');
       new Chart(ctx, {
         type: 'bar',
         data: {
-          labels,
+          labels: ['Current CA spend (~2024-25)', 'Projected with CCH reforms'],
           datasets: [{
             label: 'Spending (Billions of $)',
-            data: values,
+            data: [baseline, after],
             backgroundColor: [ACCENT, PRIMARY],
             borderColor: BG,
             borderWidth: 0
@@ -285,39 +485,77 @@
           maintainAspectRatio: false,
           scales: {
             x: { ticks: { color: TEXT } },
-            y: { ticks: { color: TEXT }, grid: { color: 'rgba(255,255,255,.12)' } }
+            y: {
+              ticks: { color: TEXT, callback: (v) => '$' + v + 'B' },
+              grid: { color: 'rgba(255,255,255,.12)' }
+            }
           },
           plugins: {
             legend: { display: false },
-            tooltip: { callbacks: { label: (c) => `${Math.round(c.raw)}B` } }
+            tooltip: { callbacks: { label: (c) => '$' + Math.round(c.raw) + 'B' } }
           }
         }
       });
     })();
 
-    // ---- Premiums comparison chart (stacked) ----
+    // ============================================
+    // CHART 4: New CCH revenue sources horizontal bar
+    // ============================================
     (function () {
-      // KFF 2024 anchors for family coverage
-      const worker = 6296;              // worker share
-      const total = 25572;             // total premium
-      const employer = total - worker;   // employer share
+      const ctx = document.getElementById('newRevenueChart');
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: [
+            'Employer payroll tax (6%)',
+            'Employee payroll tax (6%)',
+            'Stock-based comp levy (12% combined)',
+            'Windfall profit assessment (10%)',
+            'Luxury real estate fee (1–2%)'
+          ],
+          datasets: [{
+            label: 'Estimated annual revenue ($B)',
+            data: [79, 79, 18, 8, 1.5],
+            backgroundColor: ['#7F77DD', '#AFA9EC', '#1D9E75', '#D85A30', '#BA7517'],
+            borderRadius: 4,
+            borderSkipped: false
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: (c) => ' $' + c.parsed.x.toFixed(1) + 'B est. annual revenue' } }
+          },
+          scales: {
+            x: {
+              ticks: { color: TEXT, callback: (v) => '$' + v + 'B' },
+              grid: { color: 'rgba(255,255,255,.12)' },
+              title: { display: true, text: 'Billions (USD)', color: TEXT }
+            },
+            y: { ticks: { color: TEXT }, grid: { display: false } }
+          }
+        }
+      });
+    })();
 
+    // ============================================
+    // CHART 5: Premium comparison stacked bar
+    // ============================================
+    (function () {
+      const worker = 6296;
+      const employer = 25572 - worker;
       const ctx = document.getElementById('premiumChart');
       new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: ['Current', 'After reforms'],
+          labels: ['Current (KFF 2024)', 'Under CCH'],
           datasets: [
-            {
-              label: 'Employer share',
-              data: [employer, 0],
-              backgroundColor: PRIMARY
-            },
-            {
-              label: 'Worker share',
-              data: [worker, 0],
-              backgroundColor: ACCENT
-            }
+            { label: 'Employer premium share', data: [employer, 0], backgroundColor: PRIMARY },
+            { label: 'Worker premium share', data: [worker, 0], backgroundColor: ACCENT },
+            { label: 'CCH payroll contribution (6% on $80K)', data: [0, 4800], backgroundColor: '#b085f5' }
           ]
         },
         options: {
@@ -325,17 +563,20 @@
           maintainAspectRatio: false,
           scales: {
             x: { stacked: true, ticks: { color: TEXT } },
-            y: { stacked: true, ticks: { color: TEXT }, grid: { color: 'rgba(255,255,255,.12)' } }
+            y: {
+              stacked: true,
+              ticks: { color: TEXT, callback: (v) => '$' + v.toLocaleString() },
+              grid: { color: 'rgba(255,255,255,.12)' },
+              title: { display: true, text: 'Annual cost ($)', color: TEXT }
+            }
           },
           plugins: {
             legend: { labels: { color: TEXT } },
             tooltip: {
               mode: 'index',
               callbacks: {
-                footer: (items) => {
-                  const sum = items.reduce((s, i) => s + i.raw, 0);
-                  return `Total premium: $${sum.toLocaleString()}`;
-                }
+                label: (c) => ' ' + c.dataset.label + ': $' + c.raw.toLocaleString(),
+                footer: (items) => 'Total: $' + items.reduce((s, i) => s + i.raw, 0).toLocaleString()
               }
             }
           }
